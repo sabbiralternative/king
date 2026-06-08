@@ -10,13 +10,14 @@ import { Settings } from "../../api";
 import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
 import Fancy from "../../components/modules/EventDetails/Fancy";
+import Score from "../../components/modules/EventDetails/Score";
+import TennisScore from "../../components/modules/EventDetails/TennisScore";
+import OpenBets from "../../components/modals/OpenBets/OpenBets";
 
 const EventDetails = () => {
+  const [showOpenBets, setShowOpenBets] = useState(false);
   const [tab, setTab] = useState("all");
-  const [showOpenBetsModal, setShowOpenBetsModal] = useState(false);
   const [sportsVideo, { data: iframe }] = useVideoMutation();
-  const [showScore, setShowScore] = useState(true);
-  const [showVideo, setShowVideo] = useState(true);
   const { eventTypeId, eventId } = useParams();
   const [profit, setProfit] = useState(0);
   const dispatch = useDispatch();
@@ -145,6 +146,7 @@ const EventDetails = () => {
 
   return (
     <div data-v-2f3cedbb>
+      {showOpenBets && <OpenBets setShowOpenBets={setShowOpenBets} />}
       <section
         data-v-2f3cedbb
         className="simplebar-content-wrapper dashbord-p-top"
@@ -162,6 +164,7 @@ const EventDetails = () => {
                   )}
 
                   <button
+                    onClick={() => setShowOpenBets(true)}
                     data-v-01cb3fd9
                     data-bs-toggle="modal"
                     href="#exampleModalTogglebets"
@@ -280,6 +283,49 @@ const EventDetails = () => {
                   </label>
                 </div>
               </div>
+              {eventTypeId == 2 && data?.score && (
+                <TennisScore eventTypeId={eventTypeId} score={data?.score} />
+              )}
+
+              {data?.score?.tracker && (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "125px",
+                    overflow: "hidden",
+                  }}
+                >
+                  {" "}
+                  <iframe
+                    style={{
+                      width: "100%",
+                    }}
+                    className="premium-iframe"
+                    src={data?.score?.tracker}
+                  ></iframe>
+                </div>
+              )}
+              {iframe?.result?.url && data?.score?.hasVideo && (
+                <div
+                  style={{
+                    marginTop: "10px",
+                    width: "100%",
+
+                    overflow: "hidden",
+                    padding: "0px 8px",
+                  }}
+                  className="embed-responsive embed-responsive-16by9 ng-star-inserted"
+                >
+                  <iframe
+                    id="tvStr"
+                    className="embed-responsive-item w-100"
+                    src={iframe?.result?.url}
+                  ></iframe>
+                </div>
+              )}
+              {eventTypeId == 4 && data?.iscore && (
+                <Score iscore={data?.iscore} />
+              )}
               {(tab === "match_odds" || tab === "all") &&
                 matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
               {(tab === "bookmaker" || tab === "all") &&

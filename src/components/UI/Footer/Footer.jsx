@@ -1,32 +1,10 @@
-import { useState } from "react";
-import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Settings } from "../../../api";
-import WarningCondition from "../../shared/WarningCondition/WarningCondition";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const [showWarning, setShowWarning] = useState(false);
-  const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
-  const { token, bonusToken } = useSelector((state) => state.auth);
-  const handleNavigateToIFrame = (name, id) => {
-    if (token) {
-      if (bonusToken) {
-        return toast.error("Bonus wallet is available only on sports.");
-      }
-      if (Settings.casino_currency !== "AED") {
-        navigate(`/casino/${name}/${id}`);
-      } else {
-        setGameInfo({ gameName: "", gameId: "" });
-        setGameInfo({ gameName: name, gameId: id });
-        setShowWarning(true);
-      }
-    } else {
-      toast.error("Please login to access the game");
-    }
-  };
+  const { token } = useSelector((state) => state.auth);
+
   return (
     <div data-v-59732b1e className="container">
       <footer
@@ -87,7 +65,7 @@ const Footer = () => {
             <li data-v-59732b1e>
               <Link
                 data-v-59732b1e
-                to="/casino"
+                to="/live-casino"
                 className={`ui-link   ${location.pathname === "/casino" ? "router-link-active router-link-exact-active active" : ""}`}
               >
                 <img

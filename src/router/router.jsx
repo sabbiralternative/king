@@ -28,6 +28,12 @@ import Affiliate from "../pages/Affiliate/Affiliate";
 import Promotions from "../pages/Promotions/Promotions";
 import LossBackBonus from "../pages/LossBackBonus/LossBackBonus";
 import AppOnlyBonus from "../pages/AppOnlyBonus/AppOnlyBonus";
+import LiveCasino from "../pages/LiveCasino/LiveCasino";
+import Slots from "../pages/Slots/Slots";
+import CrashGames from "../pages/CrashGames/CrashGames";
+import FishingGames from "../pages/FishingGames/FishingGames";
+import Mac88 from "../pages/Mac88/Mac88";
+import CasinoIFrame from "../pages/CasinoIFrame/CasinoIFrame";
 
 export const router = createBrowserRouter(
   [
@@ -127,6 +133,30 @@ export const router = createBrowserRouter(
         {
           path: "/app-only-bonus",
           element: <AppOnlyBonus />,
+        },
+        {
+          path: "/live-casino",
+          element: <LiveCasino />,
+        },
+        {
+          path: "/slots",
+          element: <Slots />,
+        },
+        {
+          path: "/crash-games",
+          element: <CrashGames />,
+        },
+        {
+          path: "/fishing-games",
+          element: <FishingGames />,
+        },
+        {
+          path: "/mac88",
+          element: <Mac88 />,
+        },
+        {
+          path: "/casino/:name/:gameId",
+          element: <CasinoIFrame />,
         },
       ],
     },

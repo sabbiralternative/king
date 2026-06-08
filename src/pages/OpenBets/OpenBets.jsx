@@ -1,178 +1,104 @@
+import { useState } from "react";
+
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import "./OpenBets.css";
+import { useCurrentBets } from "../../hooks/currentBets";
+
 const OpenBets = () => {
+  const navigate = useNavigate();
+  const { data: myBets } = useCurrentBets();
+  const [openBets, setOpenBets] = useState(true);
+  const orderedBets = [
+    ...myBets.filter((bet) => bet.betType === "Back"),
+    ...myBets.filter((bet) => bet.betType === "Lay"),
+  ];
+
   return (
-    <div data-v-2f3cedbb>
-      <section
-        data-v-2f3cedbb
-        className="simplebar-content-wrapper dashbord-p-top mb-3"
-        loading="lazy"
+    <div className="openbets-page">
+      <div
+        id="openBetsRightSide"
+        title="Open Bets"
+        className="openbets-section"
       >
-        <div className="contan">
-          <div className="user-box">
-            <div className="sidebar-menu">
-              <div className="left-side-menu" id="sidebar-menu">
-                <ul className="scroll-manu-side" id="side-menu">
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>cricket</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>soccer</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>tennis</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>FIFA CUP WINNER</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>WINNER CUP</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>ELECTION</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>Kabaddi </span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                  <li>
-                    <a className="collapsed" aria-expanded="false">
-                      <span>Election</span>
-                      <span className="menu-arrow">
-                        <i className="fa-solid fa-chevron-right" />
-                      </span>
-                    </a>
-                    {/**/}
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              data-v-1b74d76b
-              className="change-password p-2 my-bets-fluid st_ac"
-            >
-              <div data-v-1b74d76b className="userTables">
-                <div
-                  data-v-1b74d76b
-                  className="statementFilter row gx-1 my-2 mx-0"
-                  type="BETS"
-                >
-                  <div className="statementFilter-fild col-6">
-                    <label>From Date</label>
-                    <input type="date" className="form-control" min max />
-                  </div>
-                  <div className="statementFilter-fild col-6">
-                    <label>To Date</label>
-                    <input type="date" className="form-control" min max />
-                  </div>
-                  {/**/}
-                  <div className="col-6 statementFilter-fild form-group">
-                    <label>Type</label>
-                    <select className="form-control form-select">
-                      <option value={4}>Cricket</option>
-                      <option value={1}>Soccer</option>
-                      <option value={2}>Tennis</option>
-                      <option value="sportsbook">Sportsbook</option>
-                      <option value="matka">Matka</option>
-                      <option value="fantasy_cricket">Fantasy cricket</option>
-                      <option value="casino">Casino</option>
-                      <option value="premium">Premium</option>
-                      <option value="virtual_sport">Virtual sports</option>
-                      <option value={4343}>FIFA CUP WINNER</option>
-                      <option value={4344}>WINNER CUP</option>
-                      <option value={4345}>ELECTION</option>
-                      <option value={27454572}>Kabaddi </option>
-                      <option value={27454577}>Election</option>
-                      <option value={27454571}>Esports</option>
-                      <option value={26420387}>Mixed Martial Arts</option>
-                      <option value={2152880}>Gaelic Games</option>
-                      <option value={998917}>Volleyball</option>
-                      <option value={468328}>Handball</option>
-                      <option value={61420}>Australian Rules</option>
-                      <option value={7524}>Ice Hockey</option>
-                      <option value={7522}>Basketball</option>
-                      <option value={7511}>Baseball</option>
-                      <option value={6423}>American Football</option>
-                      <option value={6422}>Snooker</option>
-                      <option value={27454574}>Table tennis</option>
-                    </select>
-                  </div>
-                  {/**/}
-                  {/**/}
-                  {/**/}
-                  <div className="statementFilter-fild col-6">
-                    <div className="row gx-1 align-items-end mx-auto">
-                      {/**/}
-                      <div className="col-12 px-0">
-                        <div className="statementFilter-button statementFilter-full">
-                          <button type="submit" className="btn btn-gets">
-                            Submit
-                          </button>
-                          {/**/}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div data-v-1b74d76b className="userTables-head heade_rounded">
-                  <h2 data-v-1b74d76b>Open Bets</h2>
-                </div>
-                <div data-v-1b74d76b className="sattle-bet-list pt-0">
-                  <div
-                    data-v-1b74d76b
-                    className="accordion border-0 accordion-flush bg-white p-1 rounded-1"
-                    id="accordionFlushExample"
-                  >
-                    <div data-v-1b74d76b className="nodata m-0">
-                      <span data-v-1b74d76b>No Data Found</span>
-                    </div>
-                    {/**/}
-                  </div>
-                </div>
-              </div>
+        <div className="openbets-col">
+          {/* Toggle Header */}
+          <div
+            onClick={() => setOpenBets((prev) => !prev)}
+            id="matched_1"
+            className="openbets-toggle"
+          >
+            <span className="openbets-toggle-label">Open Bets</span>
+            <div className="openbets-toggle-icon">
+              {openBets ? (
+                <MdOutlineKeyboardArrowUp size={20} />
+              ) : (
+                <MdOutlineKeyboardArrowDown size={20} />
+              )}
             </div>
           </div>
+
+          {/* Bets List */}
+          {openBets && myBets?.length > 0 && orderedBets?.length > 0 && (
+            <div className="openbets-list-wrap">
+              <div className="openbets-list">
+                {orderedBets?.map((bet, i) => (
+                  <div key={i} className="openbets-card">
+                    {/* Event Header */}
+                    <div
+                      onClick={() =>
+                        navigate(
+                          `/event-details/${bet?.eventTypeId}/${bet?.eventId}`,
+                        )
+                      }
+                      id="eventHeader"
+                      className="openbets-card-header"
+                    >
+                      <div
+                        className={`openbets-card-title ${
+                          bet?.betType === "Back"
+                            ? "openbets-card-title--back"
+                            : "openbets-card-title--lay"
+                        }`}
+                      >
+                        {bet?.title}
+                      </div>
+                    </div>
+
+                    {/* Nation / Sport */}
+                    <div className="openbets-card-meta">
+                      <span className="openbets-card-nation">
+                        {bet?.nation}
+                      </span>
+                      <span className="openbets-card-sport">{bet?.sports}</span>
+                    </div>
+
+                    {/* Placed Date */}
+                    <div
+                      id={`tiem_Date_of_order_0_${i}`}
+                      className="openbets-card-date"
+                    >
+                      PLACED - {bet?.placeDate}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {openBets && myBets?.length === 0 && orderedBets?.length === 0 && (
+            <div className="openbets-empty-wrap">
+              <div className="openbets-empty">You have no Open Bets.</div>
+            </div>
+          )}
         </div>
-      </section>
+      </div>
+      <div style={{ padding: "0 6px" }}></div>
+      <div style={{ padding: "4px 6px" }}></div>
     </div>
   );
 };

@@ -41,7 +41,7 @@ const MainLayout = () => {
       <div data-v-2f3cedbb className="container">
         <Header />
         <Outlet />
-        <Footer />
+        {!location.pathname.includes("/casino") && <Footer />}
       </div>
     </div>
   );

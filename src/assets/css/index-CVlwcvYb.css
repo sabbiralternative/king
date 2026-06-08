@@ -17341,6 +17341,7 @@ tbody.ng-star-inserted {
   justify-content: center;
   align-items: center;
   border-right: 1px solid #4b4b4b;
+  color: #fff;
 }
 .marketDetailsListItem .nav-pills .nav-link.active,
 .marketDetailsListItem .nav-pills .show > .nav-link {
@@ -22879,7 +22880,7 @@ span.cashout-label {
   align-items: center;
 }
 .tab-content.fixed-game-header {
-  border-bottom: 3px solid #265e04;
+  /* border-bottom: 3px solid #265e04; */
   margin-top: 0;
 }
 .modal.notification-alert-modal .modal-dialog {
@@ -26928,14 +26929,14 @@ span.resultData-dot {
   align-items: center;
   justify-content: center;
   color: #fff;
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
   border: none !important;
   border-radius: 50%;
   box-shadow: none !important;
   outline: none !important;
 }
 .footer-fixed-chat-icn img {
-  filter: invert(1);
+  /* filter: invert(1); */
 }
 .footer-fixed-chat-icn {
   margin-inline: auto;
@@ -26943,7 +26944,7 @@ span.resultData-dot {
 }
 .laser-chat,
 .whatsapp-footer-fixed-icn {
-  bottom: 76px !important;
+  bottom: 100px !important;
 }
 .disabled-btn {
   pointer-events: none !important;
@@ -33307,7 +33308,7 @@ button.first-button.btn-class {
   }
   .laser-chat,
   .whatsapp-footer-fixed-icn {
-    bottom: 65px !important;
+    bottom: 100px !important;
   }
   .fav-icn-sec {
     bottom: 120px;

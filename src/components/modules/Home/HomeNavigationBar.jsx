@@ -1,20 +1,44 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Settings } from "../../../api";
+import { useState } from "react";
+import WarningCondition from "../../shared/WarningCondition/WarningCondition";
 
 const HomeNavigationBar = () => {
+  const [showWarning, setShowWarning] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const eventTypeId = params.get("eventTypeId");
+  const { token } = useSelector((state) => state.auth);
+  const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
+
+  const handleNavigateToIFrame = (name, id) => {
+    if (token) {
+      if (Settings.casino_currency !== "AED") {
+        navigate(`/casino/${name}/${id}`);
+      } else {
+        setGameInfo({ gameName: "", gameId: "" });
+        setGameInfo({ gameName: name, gameId: id });
+        setShowWarning(true);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div data-v-5e69ccab className="mobile-view-nav">
+      {showWarning && (
+        <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
+      )}
       <div data-v-5e69ccab className="mobile-view lft-side-tabs makeFull">
         <ul data-v-5e69ccab className="home-navigation-bar">
           <li data-v-5e69ccab className="nav-item">
             <a
               data-v-5e69ccab
               className="nav-link aviator_link"
-              href="javascript:void(0)"
+              onClick={() => handleNavigateToIFrame("aviator", "200296")}
             >
               <div data-v-5e69ccab className="aviator_content">
                 <img
@@ -27,20 +51,7 @@ const HomeNavigationBar = () => {
               </div>
             </a>
           </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab>
-              <div data-v-5e69ccab className="nav-link">
-                <img
-                  data-v-5e69ccab
-                  src="/assets/ipl-icon-DGvkwZ6u.svg"
-                  alt=""
-                />
-                <span data-v-5e69ccab className="title-all-sport">
-                  IPL 2026
-                </span>
-              </div>
-            </a>
-          </li>
+
           <li data-v-5e69ccab className="nav-item">
             <a
               onClick={() => navigate("?eventTypeId=4")}
@@ -87,126 +98,6 @@ const HomeNavigationBar = () => {
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a
-              data-v-5e69ccab
-              aria-current="page"
-              href="/"
-              className="router-link-active router-link-exact-active nav-link"
-            >
-              <img
-                data-v-5e69ccab
-                loading="lazy"
-                src="/assets/tb-sports-book-CMNk2rvf.svg"
-                alt=""
-              />
-              <span data-v-5e69ccab>Sports Book</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab>
-            <a data-v-5e69ccab href="/matka" className="nav-link">
-              <img
-                data-v-5e69ccab
-                loading="lazy"
-                src="/assets/matka-icon-BwQowLWi.svg"
-                alt=""
-              />
-              <span data-v-5e69ccab>Matka</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab>
-            <a data-v-5e69ccab className="nav-link" href="javascript:void(0);">
-              <img
-                data-v-5e69ccab
-                loading="lazy"
-                src="/assets/tb-cricket-fight-B3Dnf6Rw.svg"
-                alt=""
-              />
-              <span data-v-5e69ccab>Cricket Fight</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a
-              data-v-5e69ccab
-              aria-current="page"
-              href="/"
-              className="router-link-active router-link-exact-active nav-link"
-              data-role="live-casino"
-            >
-              <img
-                data-v-5e69ccab
-                loading="lazy"
-                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
-                alt=""
-              />
-              <span data-v-5e69ccab>Live Casino</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a
-              data-v-5e69ccab
-              aria-current="page"
-              href="/"
-              className="router-link-active router-link-exact-active nav-link"
-            >
-              <img
-                data-v-5e69ccab
-                loading="lazy"
-                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
-                alt=""
-              />
-              <span data-v-5e69ccab>Slots</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a
-              data-v-5e69ccab
-              aria-current="page"
-              href="/"
-              className="router-link-active router-link-exact-active nav-link"
-            >
-              <img
-                data-v-5e69ccab
-                loading="lazy"
-                src="/assets/tb-evolution-icon-BukDzKq-.svg"
-                alt=""
-              />
-              <span data-v-5e69ccab>Evolution</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/sports-no-DZr9pepC.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>FIFA CUP WINNER</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/sports-no-DZr9pepC.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>WINNER CUP</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-election-BeUX9yBo.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>ELECTION</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
             <a data-v-5e69ccab className="nav-link">
               <img
                 data-v-5e69ccab
@@ -218,147 +109,103 @@ const HomeNavigationBar = () => {
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <a
+              data-v-5e69ccab
+              aria-current="page"
+              onClick={() => handleNavigateToIFrame("sportsbook", "550000")}
+              className="router-link-active router-link-exact-active nav-link"
+            >
               <img
                 data-v-5e69ccab
-                src="/assets/sports-no-DZr9pepC.svg"
-                alt=""
                 loading="lazy"
+                src="/assets/tb-sports-book-CMNk2rvf.svg"
+                alt=""
               />
-              <span data-v-5e69ccab>Election</span>
+              <span data-v-5e69ccab>Sports Book</span>
             </a>
           </li>
+
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <Link
+              data-v-5e69ccab
+              aria-current="page"
+              to="/mac88"
+              className="router-link-active router-link-exact-active nav-link"
+              data-role="live-casino"
+            >
               <img
                 data-v-5e69ccab
-                src="/assets/tb-esports-Cxy-4O0u.svg"
-                alt=""
                 loading="lazy"
+                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
+                alt=""
               />
-              <span data-v-5e69ccab>Esports</span>
-            </a>
+              <span data-v-5e69ccab>Mac88</span>
+            </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <Link
+              data-v-5e69ccab
+              aria-current="page"
+              to="/live-casino"
+              className="router-link-active router-link-exact-active nav-link"
+              data-role="live-casino"
+            >
               <img
                 data-v-5e69ccab
-                src="/assets/tb-mixed-martial-arts-CB6VhAk0.svg"
-                alt=""
                 loading="lazy"
+                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
+                alt=""
               />
-              <span data-v-5e69ccab>Mixed Martial Arts</span>
-            </a>
+              <span data-v-5e69ccab>Live Casino</span>
+            </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <Link
+              data-v-5e69ccab
+              aria-current="page"
+              to="/slots"
+              className="router-link-active router-link-exact-active nav-link"
+            >
               <img
                 data-v-5e69ccab
-                src="/assets/tb-gaelic-football-BxceRFju.svg"
-                alt=""
                 loading="lazy"
+                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
+                alt=""
               />
-              <span data-v-5e69ccab>Gaelic Games</span>
-            </a>
+              <span data-v-5e69ccab>Slots</span>
+            </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <Link
+              data-v-5e69ccab
+              aria-current="page"
+              to="/crash-games"
+              className="router-link-active router-link-exact-active nav-link"
+            >
               <img
                 data-v-5e69ccab
-                src="/assets/tb-volleyball-Bz1sIoZz.svg"
-                alt=""
                 loading="lazy"
+                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
+                alt=""
               />
-              <span data-v-5e69ccab>Volleyball</span>
-            </a>
+              <span data-v-5e69ccab>Crash Games</span>
+            </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <Link
+              data-v-5e69ccab
+              aria-current="page"
+              to="/fishing-games"
+              className="router-link-active router-link-exact-active nav-link"
+            >
               <img
                 data-v-5e69ccab
-                src="/assets/tb-handball-9eC-oF41.svg"
-                alt=""
                 loading="lazy"
-              />
-              <span data-v-5e69ccab>Handball</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-australian-rules-DJAgAD3o.svg"
+                src="/assets/tb-poker-cards-D3T_YA8Y.svg"
                 alt=""
-                loading="lazy"
               />
-              <span data-v-5e69ccab>Australian Rules</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-ice-hockey-B0KKxXuD.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>Ice Hockey</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-basketball-BKqmP7-k.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>Basketball</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-baseball-vsYrMHCf.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>Baseball</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-american-football-BALBURiu.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>American Football</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/tb-snooker-j3wsxn9g.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>Snooker</span>
-            </a>
-          </li>
-          <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
-              <img
-                data-v-5e69ccab
-                src="/assets/sports-no-DZr9pepC.svg"
-                alt=""
-                loading="lazy"
-              />
-              <span data-v-5e69ccab>Table tennis</span>
-            </a>
+              <span data-v-5e69ccab>Fishing Games</span>
+            </Link>
           </li>
         </ul>
       </div>

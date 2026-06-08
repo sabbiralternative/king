@@ -70,6 +70,7 @@ const Login = () => {
       apk: closePopupForForever ? true : false,
       nonce: crypto.randomUUID(),
     };
+
     const result = await handleLogin(loginData).unwrap();
 
     if (result.success) {

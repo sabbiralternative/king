@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { API } from "../api";
 import { AxiosSecure } from "../lib/AxiosSecure";
 
-const useDepositBreakdown = () => {
+const useDepositBreakdown = (payload) => {
   return useQuery({
     queryKey: ["deposit-breakdown"],
-    queryFn: async (payload) => {
+    queryFn: async () => {
       const { data } = await AxiosSecure.post(
         `${API.depositBreakdown}`,
         payload,
