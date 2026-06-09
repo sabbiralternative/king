@@ -139,8 +139,8 @@ const OddSports = () => {
           )}
 
         {groupedData?.length === 0 &&
-          eventTypeId !== 7 &&
-          eventTypeId !== 4339 &&
+          eventTypeId != 7 &&
+          eventTypeId != 4339 &&
           isSuccess && (
             <div
               style={{

@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
 import { useState } from "react";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
+import Search from "./Search";
 
 const HomeNavigationBar = () => {
+  const [showSearch, setShowSearch] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,10 +31,15 @@ const HomeNavigationBar = () => {
 
   return (
     <div data-v-5e69ccab className="mobile-view-nav">
+      {showSearch && <Search setShowSearch={setShowSearch} />}
       {showWarning && (
         <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
       )}
-      <div data-v-5e69ccab className="mobile-view lft-side-tabs makeFull">
+      <div
+        data-v-5e69ccab
+        className="mobile-view lft-side-tabs makeFull"
+        style={{ width: "calc(100% - 57px)" }}
+      >
         <ul data-v-5e69ccab className="home-navigation-bar">
           <li data-v-5e69ccab className="nav-item">
             <a
@@ -257,6 +264,22 @@ const HomeNavigationBar = () => {
             </Link>
           </li>
         </ul>
+      </div>
+      <div className="right-fixed-search-btn">
+        <a
+          onClick={() => setShowSearch(true)}
+          data-v-5e69ccab=""
+          href="#searchModal"
+          data-bs-toggle="modal"
+          className="a-search"
+        >
+          <img
+            data-v-5e69ccab=""
+            loading="lazy"
+            src="/assets/search-FeNNTuV7.png"
+            alt=""
+          />
+        </a>
       </div>
     </div>
   );

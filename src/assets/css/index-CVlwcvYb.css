@@ -42240,3 +42240,15 @@ form {
 .form-control.add::-webkit-inner-spin-button {
   display: none;
 }
+@media screen and (max-width: 479px) {
+  .mobile-view {
+    width: calc(100% - 43px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mobile-view {
+    display: flex;
+    width: calc(100% - 57px);
+  }
+}
