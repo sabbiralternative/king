@@ -26100,7 +26100,7 @@ span.resultData-dot {
   border-radius: 8px !important;
 }
 .auth_main {
-  background: var(--primary-gradient);
+  background: var(--login-bg);
   min-height: 100dvh;
   display: flex;
   align-items: center;

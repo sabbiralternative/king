@@ -1,17 +1,9 @@
 :root {
-  --primary-color: #0a2e45;
+  --primary-color: #e02116;
   --secondary-color: #6ac2ff;
-  --primary-gradient: linear-gradient(
-    -180deg,
-    rgb(20, 128, 94) 0px,
-    rgb(24, 68, 56) 100%
-  );
-  --navbar-bg: linear-gradient(
-    -180deg,
-    rgb(20, 18, 94) 0px,
-    rgb(24, 6, 56) 100%
-  );
-
+  --primary-gradient: #16acab;
+  --navbar-bg: #000;
+  --login-bg: #000;
   --bottom-nav-bg: linear-gradient(-180deg, #243a48 20%, #172732 91%);
   --bottom-nav-active-bg: linear-gradient(-180deg, #32617f 20%, #1f4258 91%);
 }
