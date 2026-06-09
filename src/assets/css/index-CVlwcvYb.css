@@ -18579,7 +18579,7 @@ a.open-bets img {
   line-height: 56px;
 }
 .heading-section .header_fixed {
-  background: var(--primary-gradient);
+  background: var(--navbar-bg);
 }
 .setting-one-click-bet-sec span {
   font-size: clamp(13px, 2vw, 14px);
@@ -42208,7 +42208,7 @@ body {
 }
 
 .heading-section {
-  background: var(--primary-gradient);
+  background: var(--navbar-bg);
 }
 .sports-selection-tabs ul {
   background: linear-gradient(-180deg, #14805e 0, #184438 100%);

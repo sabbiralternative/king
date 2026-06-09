@@ -23,7 +23,7 @@ const HorseGreyhound = ({ data, eventTypeId }) => {
     return moment(utc).tz("Asia/Kolkata").format("HH:mm");
   };
   return (
-    <div>
+    <div className="horse-greyhound">
       <div
         _ngcontent-wne-c149=""
         className="col-sm-12 col-md-12 col-lg-12 col-xl-12"
