@@ -61,7 +61,7 @@ const Sports = () => {
             </li>
 
             <li data-v-39546433 className>
-              <Link to="/?eventTypeId=6" data-v-39546433 className="active">
+              <Link to="/?eventTypeId=5" data-v-39546433 className="active">
                 <img
                   data-v-39546433
                   loading="lazy"
@@ -74,7 +74,7 @@ const Sports = () => {
               </Link>
             </li>
             <li data-v-39546433 className>
-              <Link to="/?eventTypeId=5" data-v-39546433 className="active">
+              <Link to="/?eventTypeId=6" data-v-39546433 className="active">
                 <img
                   data-v-39546433
                   loading="lazy"
@@ -83,6 +83,32 @@ const Sports = () => {
                 />
                 <span data-v-39546433 className="text-capitalize">
                   Election
+                </span>
+              </Link>
+            </li>
+            <li data-v-39546433 className>
+              <Link to="/?eventTypeId=7" data-v-39546433 className="active">
+                <img
+                  data-v-39546433
+                  loading="lazy"
+                  src="/assets/sports-no-DZr9pepC.svg"
+                  alt=""
+                />
+                <span data-v-39546433 className="text-capitalize">
+                  Horse
+                </span>
+              </Link>
+            </li>
+            <li data-v-39546433 className>
+              <Link to="/?eventTypeId=4339" data-v-39546433 className="active">
+                <img
+                  data-v-39546433
+                  loading="lazy"
+                  src="/assets/sports-no-DZr9pepC.svg"
+                  alt=""
+                />
+                <span data-v-39546433 className="text-capitalize">
+                  Greyhound
                 </span>
               </Link>
             </li>
@@ -191,7 +217,6 @@ const Sports = () => {
                   </div>
                 </Link>
               </li>
-
               <li data-v-39546433 className="nav-item">
                 <Link
                   to="/?eventTypeId=5"
@@ -202,12 +227,12 @@ const Sports = () => {
                     <img
                       data-v-39546433
                       loading="lazy"
-                      src="/assets/tb-election-BeUX9yBo.svg"
+                      src="/assets/tb-kabbadi-DKs3rxt3.svg"
                       alt=""
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      Politics
+                      Kabaddi{" "}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">
@@ -232,12 +257,73 @@ const Sports = () => {
                     <img
                       data-v-39546433
                       loading="lazy"
+                      src="/assets/tb-election-BeUX9yBo.svg"
+                      alt=""
+                      className="sport-icon"
+                    />
+                    <span data-v-39546433 className="text-capitalize">
+                      Election
+                    </span>
+                  </div>
+                  <div data-v-39546433 className="nav-next-btn">
+                    <span data-v-39546433>
+                      <img
+                        data-v-39546433
+                        loading="lazy"
+                        src="/assets/down-open-icons-BMVvhj-B.png"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </Link>
+              </li>
+
+              <li data-v-39546433 className="nav-item">
+                <Link
+                  to="/?eventTypeId=7"
+                  data-v-39546433
+                  className="nav-link active"
+                >
+                  <div data-v-39546433 className="sports-name-lft">
+                    <img
+                      data-v-39546433
+                      loading="lazy"
                       src="/assets/tb-kabbadi-DKs3rxt3.svg"
                       alt=""
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      Kabaddi{" "}
+                      Horse
+                    </span>
+                  </div>
+                  <div data-v-39546433 className="nav-next-btn">
+                    <span data-v-39546433>
+                      <img
+                        data-v-39546433
+                        loading="lazy"
+                        src="/assets/down-open-icons-BMVvhj-B.png"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </Link>
+              </li>
+              <li data-v-39546433 className="nav-item">
+                <Link
+                  to="/?eventTypeId=4339"
+                  data-v-39546433
+                  className="nav-link active"
+                >
+                  <div data-v-39546433 className="sports-name-lft">
+                    <img
+                      data-v-39546433
+                      loading="lazy"
+                      src="/assets/tb-kabbadi-DKs3rxt3.svg"
+                      alt=""
+                      className="sport-icon"
+                    />
+                    <span data-v-39546433 className="text-capitalize">
+                      Greyhound
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">

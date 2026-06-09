@@ -10688,7 +10688,7 @@ fieldset:disabled .btn {
     rgb(49, 81, 149) 0%,
     rgb(20, 33, 61) 100%
   );
-  --setting-save-bg: var(--inplay-sports-tile-bg);
+  --primary-color: var(--inplay-sports-tile-bg);
   --tabs: linear-gradient(180deg, #0a92a5 15%, #076875 100%);
   --fancy-icon: #095964;
   --semi-dark: #444;
@@ -10739,17 +10739,8 @@ fieldset:disabled .btn {
   --expo: #ff0000;
   --header-border: #41454b;
   --setting-save-color: #ffffff;
-  --theme-gradient-active: linear-gradient(
-    -180deg,
-    rgb(20, 128, 94) 0px,
-    rgb(24, 68, 56) 100%
-  );
-  --theme-gradient1: linear-gradient(
-    -180deg,
-    rgb(20, 128, 94) 0px,
-    rgb(24, 68, 56) 100%
-  );
-  --theme-gradient1-text: #ffffff;
+
+  --primary-gradient-text: #ffffff;
   --theme-gradient2: linear-gradient(-180deg, #2e4b5e 0%, #243a48 82%);
   --theme-gradient2-text: #ffffff;
   --theme-gradient3: linear-gradient(#525252 0%, #2d2d2d 80%);
@@ -10787,8 +10778,7 @@ fieldset:disabled .btn {
     inset 0px -3px 0px rgba(22, 210, 251, 0.25);
   --font-bold: "Tahoma-Bold", "Helvetica", sans-serif;
   --fix-font-size: clamp(12px, 2vw, 14px);
-  --bottom-nav-active-bg: linear-gradient(-180deg, #32617f 20%, #1f4258 91%);
-  --bottom-nav-bg: linear-gradient(-180deg, #243a48 20%, #172732 91%);
+
   --magnifier-bg: linear-gradient(#525252 0%, #2d2d2d 80%);
   --mbl-sports-active-bg: linear-gradient(-180deg, #000000 0%, #000000 100%);
 }
@@ -12557,8 +12547,7 @@ a.exp-topcount {
 }
 .mobile-menus-screen .mbl-logout-btn {
   height: 46px;
-  background: linear-gradient(-180deg, #e93522, #be2414);
-  border: 1px solid #8a0011;
+  background: var(--primary-gradient);
   color: #fff;
   font-size: clamp(13px, 4vw, 16px);
   font-weight: 700;
@@ -12677,8 +12666,7 @@ h2.eventTitle span {
   padding-right: 10px;
   position: relative;
   font-size: 12px;
-  background: var(--theme-color);
-  background: linear-gradient(-180deg, #2e4b5e, #243a48 82%);
+  background: var(--primary-color);
   width: fit-content;
   border-radius: 0 15px 0 0;
   display: flex;
@@ -13246,7 +13234,7 @@ img.jockey-img {
   text-transform: uppercase;
   padding: 3px 5px;
   border-radius: 2px;
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
   margin-left: 6px;
   display: flex;
   align-items: center;
@@ -16296,7 +16284,7 @@ h3.slct-digit {
 }
 .match-inplay-tv {
   padding: 5px;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   display: flex;
   justify-content: space-between;
   gap: 8px;
@@ -16685,7 +16673,7 @@ input.form-control.mbetting-table-none {
 }
 .btn-login-1 {
   display: flex;
-  background: var(--log-button);
+  background: var(--primary-color);
   padding: 7px 10px;
   margin-left: 5px;
   color: #fff;
@@ -16737,7 +16725,7 @@ tr.btm-light-table-row td {
 .sports-selection-tabs .nav {
   text-align: center;
   display: flex;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   width: 100%;
   overflow-x: auto;
   list-style: none;
@@ -16810,7 +16798,7 @@ tr.btm-light-table-row td {
   width: 100%;
   background-color: #000;
   justify-content: space-between;
-  background: var(--inplay-sports-tile-bg);
+  background: var(--primary-color);
 }
 .competition-head h3 {
   width: auto !important;
@@ -17219,7 +17207,7 @@ tr.btm-light-table-row td {
   width: 100%;
   left: 0;
   height: calc(100% + 32px);
-  background: linear-gradient(-180deg, #243a48 40%, #172732 91%);
+  background: var(--bottom-nav-bg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   pointer-events: none;
@@ -17303,7 +17291,7 @@ tbody.ng-star-inserted {
   font-family: var(--font-bold);
 }
 .match-days-tab .nav-tabs button.active {
-  background: #3b5160 !important;
+  background: var(--primary-color) !important;
   color: #fff;
   border-bottom: 0;
   border-radius: 0;
@@ -17576,7 +17564,7 @@ button.min-max-bet {
   width: 33%;
 }
 button.btn.btn-login-1:hover {
-  background: linear-gradient(-180deg, #f72424, #bb1c00);
+  background: var(--primary-color);
   color: #fff;
 }
 .tab-set .oddsEventlist .btn-group button {
@@ -18061,7 +18049,7 @@ a.match-type-h {
 .form-check-label {
   color: #fff;
   font-weight: 700;
-  background: linear-gradient(-180deg, #2e4b5e, #243a48 82%);
+  background: var(--primary-color);
   border: 1px solid #000000;
   border-radius: 4.8vw;
   width: max-content;
@@ -18074,7 +18062,7 @@ a.match-type-h {
 .mat-mdc-checkbox .form-check-label.active {
   color: var(--theme-black) !important;
   border-bottom: 1px solid #000000;
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
 }
 .marketDetailsListItem ul {
   display: flex;
@@ -18167,7 +18155,7 @@ button.sports-close-icons {
 }
 .clip {
   width: 100%;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   clip-path: polygon(
     84.055% 72.197%,
     84.055% 72.197%,
@@ -18512,7 +18500,7 @@ button.sports-close-icons {
 }
 .haeder-nav
   :is(.open-bets, .login-refresh-MAcnt-btn button, .acc-setting-btn button) {
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
   border: 1px solid #0b1933;
 }
 .acc-setting-btn .header_btns {
@@ -18569,7 +18557,7 @@ a.open-bets img {
   padding-top: 0;
 }
 .user-profile {
-  background: var(--theme-gradient4);
+  background: var(--primary-gradient);
   padding: 10px 14px;
 }
 .account-circle h3 img {
@@ -18591,7 +18579,7 @@ a.open-bets img {
   line-height: 56px;
 }
 .heading-section .header_fixed {
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
 }
 .setting-one-click-bet-sec span {
   font-size: clamp(13px, 2vw, 14px);
@@ -19077,7 +19065,7 @@ button.updatebtn {
   margin: auto;
   width: 100%;
   border: none;
-  background: var(--setting-save-bg);
+  background: var(--primary-color);
   color: var(--setting-save-color);
   display: block;
   text-align: center;
@@ -19100,7 +19088,7 @@ button.updatebtn {
   display: flex;
   text-align: center;
   font-family: var(--font-bold);
-  background: var(--highlight-tile-bg);
+  background: var(--primary-gradient);
   color: #000;
   line-height: 2.6;
 }
@@ -19111,7 +19099,7 @@ button.updatebtn {
   position: relative;
   top: 1px;
   border: 2px solid;
-  border-image: conic-gradient(
+  /* border-image: conic-gradient(
       #6ca7ec,
       #2222b9,
       #6ca7ec,
@@ -19120,7 +19108,7 @@ button.updatebtn {
       #2222b9,
       #6ca7ec
     )
-    1;
+    1; */
   height: 34px;
   line-height: 34;
 }
@@ -19288,7 +19276,7 @@ span.mo_min-max b {
   border: 0;
 }
 .modal-header.open-bet-h {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   border: 0;
   border-radius: 0;
   padding: 10px;
@@ -19421,7 +19409,7 @@ ul.home-navigation-bar li a.active img {
 .home-navigation-bar {
   text-align: center;
   display: flex;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -19526,7 +19514,7 @@ img.clock-icons {
 .mobilebet-btn .btn-betplace {
   letter-spacing: 1px;
   text-transform: capitalize;
-  background: var(--setting-save-bg) !important;
+  background: var(--primary-color) !important;
   color: #fff !important;
   border: 1px solid #000000;
   line-height: 1.5;
@@ -20505,7 +20493,7 @@ h3.profit-color {
   font-weight: 600;
 }
 .match-header-con {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   padding: 4px 20px 4px 10px;
   -webkit-clip-path: polygon(0 0, 99.91% 0, 95% 52.5%, 99.91% 100%, 0 100%);
   clip-path: polygon(0 0, 99.91% 0, 95% 52.5%, 99.91% 100%, 0 100%);
@@ -20557,7 +20545,7 @@ h3.profit-color {
   .nav-link.active.language-slct-option.slct-tab-lang.nav-pills
   .nav-link.active,
 .language-slct-option.slct-tab-lang .nav-pills li .nav-link.active {
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
   box-shadow: none;
   color: #fff !important;
   border: none;
@@ -20587,7 +20575,7 @@ h3.profit-color {
   padding: 0 12px;
   justify-content: space-between;
   border-bottom: 1px solid #aaa;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   box-shadow: 0 0 5px #333;
 }
 .exch-match-detail-tabs-section .nav-tabs .nav-link {
@@ -20774,7 +20762,7 @@ button.shared-modal-btn {
   margin-bottom: 4px;
 }
 .exch-open-bets-wrapper button.accordion-button {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
 }
 .exch-open-bets-wrapper .accordion-button:after {
   filter: invert(1);
@@ -20949,8 +20937,8 @@ ul.select-bet-btn li a {
 }
 .choose-bet-list .nav-pills .nav-link.active,
 .choose-bet-list .nav-pills .show > .nav-link {
-  background: var(--theme-gradient1) !important;
-  border: 0px solid var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
+  border: 0px solid var(--primary-gradient) !important;
   margin: 0;
   color: #fff !important;
   outline: none !important;
@@ -21300,7 +21288,7 @@ button.close-modal-lang img {
   align-items: center;
 }
 .madhur-con-header {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   border-radius: 8px 8px 0 0;
   align-items: center;
 }
@@ -21983,7 +21971,7 @@ tr.e-statement-header:after {
 .nw-bet-type-btn {
   padding: 3px 10px;
   border-radius: 4px;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   color: #fff;
   min-width: 104px;
   text-align: center;
@@ -22272,11 +22260,11 @@ span.info-sec-icon img {
   font-size: 14px;
 }
 .install-apk-model .nav-tabs .nav-link.active {
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
 }
 .install-apk-model .modal-footer .close-btn {
   margin: 0 auto;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   color: #fff;
   border: none;
   font-weight: 600;
@@ -22834,7 +22822,7 @@ input::placeholder {
   }
 }
 .thm-but.thm-bor-but.text-center.reminder-active {
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
   color: var(--white-color) !important;
   opacity: 1;
 }
@@ -23404,7 +23392,7 @@ span.infoIcon-wrap img {
   }
 }
 .rulesTitle-wrap {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   color: var(--theme-black);
   font-size: 12px;
   line-height: 25px;
@@ -24822,7 +24810,7 @@ span.infoIcon-wrap img {
   background-color: #e9ecef;
 }
 .headerTheme {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   border-bottom: 0px;
 }
 .modal-header h5,
@@ -25775,7 +25763,7 @@ span.resultData-dot {
   font-size: 12px;
   line-height: 1;
   font-family: Tahoma;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   padding: 10px;
   border-radius: 4px;
   min-width: 34px;
@@ -25848,7 +25836,7 @@ span.resultData-dot {
   vertical-align: middle;
   padding: 6px;
   font-size: 14px;
-  border: 1px solid #c8ced3;
+  /* border: 1px solid #c8ced3; */
   white-space: nowrap;
 }
 .back-background {
@@ -26112,7 +26100,7 @@ span.resultData-dot {
   border-radius: 8px !important;
 }
 .auth_main {
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
   min-height: 100dvh;
   display: flex;
   align-items: center;
@@ -26140,7 +26128,7 @@ span.resultData-dot {
   position: absolute;
   right: 15px;
   top: 20px;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   text-align: center;
   display: flex;
   align-items: center;
@@ -26181,7 +26169,7 @@ span.resultData-dot {
 .login-option .nav .show > .nav-link {
   color: #fff !important;
   border-bottom: 0;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   width: 100%;
 }
 .login-option .nav .nav-link:hover {
@@ -26216,7 +26204,7 @@ span.resultData-dot {
   right: 0;
   min-width: 50px;
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   border: none;
   display: flex;
   align-items: center;
@@ -26283,7 +26271,7 @@ span.resultData-dot {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
   z-index: -1;
 }
 .form_list_select {
@@ -26458,7 +26446,7 @@ span.resultData-dot {
   -webkit-background-clip: text;
   background-clip: text;
   background-image: var(--theme-link);
-  background-color: var(--theme-gradient1);
+  background-color: var(--primary-gradient);
   position: relative;
 }
 .refer-code-hyper a:before {
@@ -26482,7 +26470,7 @@ span.resultData-dot {
   width: 50%;
 }
 .login-cmn-btn button {
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
   box-shadow: none;
   border-radius: 0.37rem;
   font-size: 13px;
@@ -26501,7 +26489,7 @@ span.resultData-dot {
 .login-cmn-btn button:hover,
 .login-cmn-btn button:focus,
 .login-cmn-btn button:active {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   color: #fff;
 }
 .Continue-with .button-whatsapp {
@@ -26520,7 +26508,7 @@ span.resultData-dot {
 }
 .Continue-with .btn-whatsapp {
   width: 100%;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   display: flex;
   justify-content: center;
   gap: 5px;
@@ -27495,7 +27483,7 @@ a.back_btn {
   background: #ededed;
 }
 .faq-question-box {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   color: #fff;
   border-radius: 40px;
   padding: clamp(8px, 2vw, 12px) clamp(12px, 2vw, 18px);
@@ -27572,7 +27560,7 @@ a.back_btn {
   position: fixed;
   bottom: 135px;
   right: 15px;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   border: none;
   width: 40px;
   height: 40px;
@@ -28237,7 +28225,7 @@ button.buttonWrap-btns.buttonTheme {
   border-right: none !important;
 }
 .guidePoint-details .nav.nav-pills li.nav-item .nav-link.active {
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
   box-shadow: none;
   color: #fff !important;
   border: none;
@@ -28974,7 +28962,7 @@ ul.affi-how-bonus-list.affi-how-to-get-bonus h5 {
   padding-bottom: 15px;
 }
 .user-jounery-info-bx .btn.btn-success {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   width: 100%;
   text-align: left;
 }
@@ -29678,7 +29666,7 @@ ul.affi-how-bonus-list.affi-how-to-get-bonus h5 {
   gap: 5px;
   font-size: 14px;
   color: var(--theme-white) !important;
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
   border: none !important;
   width: 100%;
   padding: 10px 15px;
@@ -29688,7 +29676,7 @@ ul.affi-how-bonus-list.affi-how-to-get-bonus h5 {
 .forgot--btn:hover,
 .forgot--btn:focus {
   color: var(--theme-white) !important;
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
 }
 .cashout_min-max-container {
   display: flex;
@@ -30165,7 +30153,7 @@ table tr:has(.open-bet-footerbg) td {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: var(--theme-gradient-active);
+  background: var(--primary-gradient);
   border-radius: 8px;
   padding: 5px;
   color: #fff;
@@ -30249,11 +30237,11 @@ button:is(:focus, :focus-visible) {
   text-transform: capitalize;
 }
 .promo_input_group button {
-  border: 1px solid var(--theme-gradient1);
+  border: 1px solid var(--primary-gradient);
   box-shadow: none;
   outline: none;
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   border-radius: 0 4px 4px 0;
   font-size: 16px;
   font-weight: 600;
@@ -31087,7 +31075,7 @@ button.min_max_heading {
   font-family: var(--font-bold);
 }
 .mat-mdc-checkbox .form-check-label.active {
-  background: linear-gradient(#a4dc60, #4f9f21) !important;
+  background: var(--secondary-color) !important;
 }
 .mobile-app-footer .social-icon-wrapper img {
   width: 26px;
@@ -42220,7 +42208,7 @@ body {
 }
 
 .heading-section {
-  background: linear-gradient(-180deg, #14805e 0, #184438 100%);
+  background: var(--primary-gradient);
 }
 .sports-selection-tabs ul {
   background: linear-gradient(-180deg, #14805e 0, #184438 100%);

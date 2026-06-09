@@ -26,7 +26,7 @@
 .nw-affi-heading-text {
   font-size: 12px;
   font-weight: 600;
-  color: var(--theme-gradient1);
+  color: var(--primary-gradient);
   text-transform: capitalize;
 }
 
@@ -49,7 +49,7 @@
   flex-direction: column;
   width: calc(50% - 10px);
   white-space: normal;
-  border-right: 1px solid var(--theme-gradient1);
+  border-right: 1px solid var(--primary-gradient);
   padding: 5px 0;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .nw-affi-invite-sec h2 {
-  color: var(--theme-gradient1);
+  color: var(--primary-gradient);
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 2px;
@@ -121,7 +121,7 @@
 }
 
 .nw-affi-add-new-user-btn {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   position: relative;
   color: #fff;
   padding: 16px;
@@ -173,7 +173,7 @@
 }
 
 .nw-affi-qr-invite-heading h3 {
-  color: var(--theme-gradient1);
+  color: var(--primary-gradient);
   font-size: 12px;
   font-weight: 700;
 }
@@ -210,7 +210,7 @@
 }
 
 .nw-affi-qr-sec span {
-  color: var(--theme-gradient1);
+  color: var(--primary-gradient);
   text-decoration: underline;
   font-size: 12px;
   font-weight: 600;
@@ -269,7 +269,7 @@
 }
 
 /* .affi-yellow-btn {
-  background-color: var(--theme-gradient1) !important;
+  background-color: var(--primary-gradient) !important;
 } */
 
 .thm-but {
@@ -534,7 +534,7 @@ footer[data-v-066114c4] {
 }
 
 .affilate_footer a.active[data-v-066114c4] {
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   color: #fff;
 }
 
@@ -738,7 +738,7 @@ tr {
 }
 
 .sub-header-tab.refer-earn-sec .nav-pills .nav-link.active {
-  background-color: var(--theme-gradient1);
+  background-color: var(--primary-gradient);
   color: #000;
 }
 
@@ -796,7 +796,7 @@ tr {
 }
 
 .thm-but {
-  background: var(--theme-gradient1) !important;
+  background: var(--primary-gradient) !important;
   color: #fff !important;
 }
 

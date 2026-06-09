@@ -98,7 +98,11 @@ const HomeNavigationBar = () => {
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
-            <a data-v-5e69ccab className="nav-link">
+            <a
+              onClick={() => navigate("?eventTypeId=5")}
+              data-v-5e69ccab
+              className={`nav-link  ${eventTypeId === "5" ? "active" : ""}`}
+            >
               <img
                 data-v-5e69ccab
                 src="/assets/tb-kabbadi-DKs3rxt3.svg"
@@ -106,6 +110,51 @@ const HomeNavigationBar = () => {
                 loading="lazy"
               />
               <span data-v-5e69ccab>Kabaddi </span>
+            </a>
+          </li>
+          <li data-v-5e69ccab className="nav-item">
+            <a
+              onClick={() => navigate("?eventTypeId=6")}
+              data-v-5e69ccab
+              className={`nav-link  ${eventTypeId === "6" ? "active" : ""}`}
+            >
+              <img
+                data-v-5e69ccab
+                src="/assets/tb-kabbadi-DKs3rxt3.svg"
+                alt=""
+                loading="lazy"
+              />
+              <span data-v-5e69ccab>Election </span>
+            </a>
+          </li>
+          <li data-v-5e69ccab className="nav-item">
+            <a
+              onClick={() => navigate("?eventTypeId=7")}
+              data-v-5e69ccab
+              className={`nav-link  ${eventTypeId === "7" ? "active" : ""}`}
+            >
+              <img
+                data-v-5e69ccab
+                src="/assets/tb-kabbadi-DKs3rxt3.svg"
+                alt=""
+                loading="lazy"
+              />
+              <span data-v-5e69ccab>Horse </span>
+            </a>
+          </li>
+          <li data-v-5e69ccab className="nav-item">
+            <a
+              onClick={() => navigate("?eventTypeId=4339")}
+              data-v-5e69ccab
+              className={`nav-link  ${eventTypeId === "4339" ? "active" : ""}`}
+            >
+              <img
+                data-v-5e69ccab
+                src="/assets/tb-kabbadi-DKs3rxt3.svg"
+                alt=""
+                loading="lazy"
+              />
+              <span data-v-5e69ccab>Greyhound </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">

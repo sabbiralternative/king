@@ -1,6 +1,7 @@
 import Banner from "../../components/modules/Home/Banner";
 import HomeFooter from "../../components/modules/Home/HomeFooter";
 import HomeNavigationBar from "../../components/modules/Home/HomeNavigationBar";
+import IndianCardGames from "../../components/modules/Home/IndianCardGames";
 import OddSports from "../../components/modules/Home/OddSports";
 import Originals from "../../components/modules/Home/Originals";
 import SocialLink from "../../components/modules/Home/SocialLink";
@@ -23,6 +24,7 @@ const Home = () => {
           <Originals trendingGames={lotusLobby?.trendingGames} />
           {/* <CasinoGames /> */}
 
+          <IndianCardGames />
           <HomeFooter />
         </div>
 

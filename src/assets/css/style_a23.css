@@ -361,10 +361,10 @@ body,
 
 .a23_css .ui-button.s-conic {
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -372,7 +372,7 @@ body,
 .a23_css .ui-button.s-conic:hover {
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -5871,7 +5871,7 @@ img,
   background: radial-gradient(
     25% 90% at 50% 50%,
     var(--theme-secondary-color) 0%,
-    var(--theme-gradient1) 100%
+    var(--primary-gradient) 100%
   );
   /* box-shadow: 0 5px 21px #00cf5875; */
   margin: 1.5rem 0rem;
@@ -6339,10 +6339,10 @@ a,
 
 .a23_css .ui-button.s-conic {
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -6350,7 +6350,7 @@ a,
 .a23_css .ui-button.s-conic:hover {
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -6898,9 +6898,9 @@ a,
 .a23_css .s1bscfa1 .ui-button.s-conic:hover {
   background: conic-gradient(
     from 90deg at 50% 50%,
-    var(--theme-gradient1) -90deg,
+    var(--primary-gradient) -90deg,
     var(--theme-secondary-color) 269.96deg,
-    var(--theme-gradient1) 270deg,
+    var(--primary-gradient) 270deg,
     var(--theme-secondary-color) 629.96deg
   );
 }
@@ -7644,10 +7644,10 @@ a,
 
 .a23_css .ui-button.s-conic {
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -7655,7 +7655,7 @@ a,
 .a23_css .ui-button.s-conic:hover {
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -8701,10 +8701,10 @@ input,
 
 .a23_css .ui-button.s-conic {
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -8712,7 +8712,7 @@ input,
 .a23_css .ui-button.s-conic:hover {
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -9173,10 +9173,10 @@ input,
 
 .a23_css .ui-button.s-conic {
   color: #fff;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -9184,7 +9184,7 @@ input,
 .a23_css .ui-button.s-conic:hover {
   background-image: conic-gradient(
     from 1turn,
-    var(--theme-gradient1),
+    var(--primary-gradient),
     var(--theme-secondary-color)
   );
 }
@@ -12778,7 +12778,7 @@ img,
 
 .a23_css .btn_box {
   align-items: center;
-  background: #313b3f;
+  background: var(--primary-color);
   border-radius: 1.38rem;
   display: flex;
   justify-content: center;
@@ -12950,7 +12950,7 @@ img,
   border-radius: 0.5rem;
   opacity: 0.5;
   width: 100%;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   /* box-shadow: 0 0 5px #2db261; */
   color: #fff;
   font-family: "Inter";
@@ -12973,7 +12973,7 @@ img,
 .a23_css .btnn.active {
   opacity: 1;
   border-radius: 0.5rem;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   /* box-shadow: 0 5px 21px #00cf5875; */
 }
 
@@ -13001,7 +13001,7 @@ img,
   align-items: center;
   gap: 0.375rem;
   border-radius: 0.5rem;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
 }
 
 .a23_css .makepayment:hover {
@@ -15241,7 +15241,7 @@ img,
   border-radius: 0.375rem;
   background: linear-gradient(
     94deg,
-    var(--theme-gradient1) -2.18%,
+    var(--primary-gradient) -2.18%,
     var(--theme-secondary-color) 102.44%
   );
   /* box-shadow: 0 4px 20px #00cf5859; */
@@ -15734,8 +15734,8 @@ img,
 .a23_css .whatsup-card {
   width: 100%;
   border-radius: 0.5rem;
-  border: 1px solid var(--theme-gradient1);
-  background: var(--theme-gradient1);
+  border: 1px solid var(--primary-gradient);
+  background: var(--primary-gradient);
   display: flex;
   height: 2.875rem;
   padding: 0.5rem 1.25rem;
@@ -15875,7 +15875,7 @@ img,
 .a23_css .otp-btn {
   border-radius: 0.5rem;
   opacity: 0.5;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   display: flex;
   height: 2.5rem;
   padding: 0.5rem;
@@ -15889,7 +15889,7 @@ img,
 
 .a23_css .otp-btn:enabled {
   opacity: 1;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   /* box-shadow: 0 5px 21px #00cf5875; */
 }
 
@@ -16564,13 +16564,13 @@ img,
   align-self: stretch;
   border-radius: 0.5rem;
   opacity: 0.5;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   animation: slideInSubmitOtPbutton 0.5s ease-in-out forwards;
 }
 
 .a23_css .submit-btn:enabled {
   opacity: 1;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   /* box-shadow: 0 5px 21px #00cf5875; */
 }
 
@@ -19715,7 +19715,7 @@ a,
   border-radius: 0.5rem;
   opacity: 0.5;
   width: 100%;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   /* box-shadow: 0 0 5px var(--theme-secondary-color); */
   color: #fff;
   font-family: "Inter";
@@ -20661,7 +20661,7 @@ img,
   gap: 0.375rem;
   opacity: 0.7;
   border-radius: 0.5rem;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
 }
 
 .a23_css .process-btn:enabled {
@@ -21336,7 +21336,7 @@ img,
   align-self: stretch;
   border-radius: 0.5rem;
   opacity: 0.7;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
 }
 
 .a23_css .add-btn:enabled {
@@ -23091,7 +23091,7 @@ img,
   gap: 0.375rem;
   flex-shrink: 0;
   border-radius: 0.5rem;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   margin-top: 2rem;
 }
 
@@ -23677,7 +23677,7 @@ img,
   align-items: center;
   gap: 0.375rem;
   border-radius: 0.5rem;
-  background: (--theme-gradient1);
+  background: (--primary-gradient);
   /* box-shadow: 0 5px 21px #00cf5875; */
 }
 
@@ -26593,7 +26593,7 @@ img,
   cursor: pointer;
   height: 40px;
   display: flex;
-  background: var(--theme-gradient1);
+  background: var(--primary-gradient);
   box-sizing: border-box;
   align-items: center;
   border-radius: 50%;

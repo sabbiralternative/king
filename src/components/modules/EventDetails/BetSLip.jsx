@@ -211,6 +211,8 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
       dispatch(setStake(buttonValue + prevStake));
     }
   };
+
+  console.log(placeBetValues);
   return (
     <div
       data-v-01cb3fd9
@@ -347,9 +349,14 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
         </div>
       </div>
       <div data-v-a3bfde67 className="place-bet">
-        <ul data-v-a3bfde67 className="stakesBtns mbetting-table-none">
-          {parseButtonValues?.slice(0, 6)?.map((button, i) => (
+        <ul
+          data-v-a3bfde67
+          className="stakesBtns mbetting-table-none"
+          style={{ display: "flex", flexWrap: "wrap" }}
+        >
+          {parseButtonValues?.map((button, i) => (
             <li
+              style={{ maxWidth: "100px" }}
               key={i}
               onClick={() => handleButtonValue(button?.value)}
               data-v-a3bfde67
@@ -373,7 +380,9 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
           onClick={() =>
             dispatch(
               setStake(
-                parseButtonValues?.[parseButtonValues?.length - 1]?.value,
+                Number(
+                  placeBetValues?.maxLiabilityPerBet?.replace(/k$/i, "000"),
+                ),
               ),
             )
           }
@@ -395,6 +404,7 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
       </div>
       <div data-v-a3bfde67 className="mobilebet-btn">
         <button
+          style={{ color: "black" }}
           onClick={handleCancelBet}
           data-v-a3bfde67
           className="btn btn-cancel"

@@ -58,6 +58,10 @@ const OpenBets = () => {
                       className="openbets-card-header"
                     >
                       <div
+                        style={{
+                          color: bet?.isBack ? "#72bbef" : "#faa9ba",
+                          testDecoration: "underline",
+                        }}
                         className={`openbets-card-title ${
                           bet?.betType === "Back"
                             ? "openbets-card-title--back"

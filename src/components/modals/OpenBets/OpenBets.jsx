@@ -11,7 +11,11 @@ const OpenBets = ({ setShowOpenBets }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { eventId, eventTypeId } = useParams();
-  const { data: myBets, refetch: refetchCurrentBets } = useCurrentBets(eventId);
+  const {
+    data: myBets,
+    refetch: refetchCurrentBets,
+    isSuccess,
+  } = useCurrentBets(eventId);
 
   const { mutate: cashOut } = useSBCashOut();
   const { data: eventData } = useGetEventDetailsQuery(
@@ -28,7 +32,7 @@ const OpenBets = ({ setShowOpenBets }) => {
     ...myBets.filter((bet) => bet.betType === "Lay"),
   ];
   const navigateGameList = (item) => {
-    navigate(`/game-details/${item?.eventTypeId}/${item?.eventId}`);
+    navigate(`/event-details/${item?.eventTypeId}/${item?.eventId}`);
   };
 
   const sportsBook = eventData?.sportsbook?.Result;
@@ -127,25 +131,23 @@ const OpenBets = ({ setShowOpenBets }) => {
                     <div className="acc-tabs-sec">
                       <div className="table-responsive">
                         <table className="table text-light">
-                          <thead>
+                          {/* <thead>
                             <tr>
                               <th>
-                                <b>Selection</b>
+                                <b>Nation</b>
                               </th>
                               <th>
-                                <b>Odds</b>
+                                <b>User Rate</b>
                               </th>
                               <th>
-                                <b>Stake</b>
-                              </th>
-                              <th>
-                                <b>Date/Time</b>
+                                <b>Amount</b>
                               </th>
                             </tr>
-                          </thead>
+                          </thead> */}
                           <tbody>
                             {myBets?.length === 0 &&
-                              orderedBets?.length === 0 && (
+                              orderedBets?.length === 0 &&
+                              isSuccess && (
                                 <tr>
                                   <td className="p-0" colSpan={4}>
                                     <section className="noData-sec">
@@ -220,74 +222,111 @@ const OpenBets = ({ setShowOpenBets }) => {
                                     (bet?.userRate / column?.Price) -
                                   bet?.amount
                                 )?.toFixed(2);
+
                                 return (
                                   <tr
+                                    style={{
+                                      borderTop: "none",
+                                      cursor: "pointer",
+                                    }}
                                     onClick={() => navigateGameList(bet)}
                                     key={i}
                                   >
-                                    <td className="p-0" colSpan={4}>
-                                      {bet?.nation}
-                                      {bet?.cashout &&
-                                        eventId &&
-                                        eventTypeId &&
-                                        column && (
-                                          <button
-                                            onClick={() =>
-                                              handleCashOut({
-                                                betHistory: bet,
-                                                sportsBook,
-                                                price: column?.Price,
-                                                cashout_value: price,
-                                              })
-                                            }
-                                            type="button"
-                                            className="btn_box "
-                                            style={{
-                                              width: "auto",
-                                              backgroundColor: "#f3f3f3ff",
-                                              display: "flex",
-                                              alignItems: "center",
-                                              cursor: `pointer`,
-                                              justifyContent: "center",
-                                              gap: "0px 2px",
-                                              borderRadius: "2px",
-                                              padding: "3px 5px",
-                                            }}
-                                          >
-                                            <span
+                                    <td
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "start",
+                                        marginBottom: "5px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          justifyContent: "space-between",
+                                        }}
+                                      >
+                                        {" "}
+                                        <span
+                                          style={{
+                                            color: bet?.isBack
+                                              ? "#72bbef"
+                                              : "#faa9ba",
+                                            textDecoration: "underline",
+                                          }}
+                                        >
+                                          {" "}
+                                          {bet?.title}
+                                        </span>
+                                        {bet?.cashout &&
+                                          eventId &&
+                                          eventTypeId &&
+                                          column && (
+                                            <button
+                                              onClick={() =>
+                                                handleCashOut({
+                                                  betHistory: bet,
+                                                  sportsBook,
+                                                  price: column?.Price,
+                                                  cashout_value: price,
+                                                })
+                                              }
+                                              type="button"
+                                              className="btn_box "
                                               style={{
-                                                fontSize: "10px",
-                                                color: "black",
+                                                width: "auto",
+                                                backgroundColor: "#f3f3f3ff",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                cursor: `pointer`,
+                                                justifyContent: "center",
+                                                gap: "0px 2px",
+                                                borderRadius: "2px",
+                                                padding: "3px 5px",
                                               }}
                                             >
-                                              Cashout
-                                            </span>
-                                            {price && (
                                               <span
                                                 style={{
+                                                  fontSize: "10px",
                                                   color: "black",
-                                                  fontSize: "10px",
                                                 }}
                                               >
-                                                :
+                                                Cashout
                                               </span>
-                                            )}
+                                              {price && (
+                                                <span
+                                                  style={{
+                                                    color: "black",
+                                                    fontSize: "10px",
+                                                  }}
+                                                >
+                                                  :
+                                                </span>
+                                              )}
 
-                                            {price && (
-                                              <span
-                                                style={{
-                                                  color: `${price > 0 ? "green" : "red"}`,
-                                                  fontSize: "10px",
-                                                }}
-                                              >
-                                                {price}
-                                              </span>
-                                            )}
-                                          </button>
-                                        )}
+                                              {price && (
+                                                <span
+                                                  style={{
+                                                    color: `${price > 0 ? "green" : "red"}`,
+                                                    fontSize: "10px",
+                                                  }}
+                                                >
+                                                  {price}
+                                                </span>
+                                              )}
+                                            </button>
+                                          )}
+                                      </div>
+                                      <div style={{ textAlign: "start" }}>
+                                        {" "}
+                                        {bet?.marketName}: {bet?.nation}
+                                      </div>
+                                      <div style={{ textAlign: "start" }}>
+                                        Placed : {bet?.placeDate}
+                                      </div>
                                     </td>
-                                    <td> {bet?.userRate}</td>
-                                    <td> {bet?.amount}</td>
+                                    {/* <td> {bet?.userRate}</td>
+                                    <td> {bet?.amount}</td> */}
                                   </tr>
                                 );
                               })}

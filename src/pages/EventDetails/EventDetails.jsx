@@ -13,6 +13,7 @@ import Fancy from "../../components/modules/EventDetails/Fancy";
 import Score from "../../components/modules/EventDetails/Score";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
 import OpenBets from "../../components/modals/OpenBets/OpenBets";
+import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 
 const EventDetails = () => {
   const [showOpenBets, setShowOpenBets] = useState(false);
@@ -130,6 +131,12 @@ const EventDetails = () => {
       game?.visible == true &&
       game?.name === "tied match",
   );
+  const fancyData = data?.result?.filter(
+    (fancy) =>
+      fancy.btype === "FANCY" &&
+      fancy.tabGroupName === "Normal" &&
+      fancy?.visible == true,
+  );
 
   useEffect(() => {
     const handleGetVideo = async () => {
@@ -175,114 +182,124 @@ const EventDetails = () => {
                   </button>
                 </div>
               </div>
+              {eventTypeId != 7 && eventTypeId != 4339 && (
+                <div data-v-01cb3fd9 className="mat-mdc-wrap">
+                  <div
+                    data-v-01cb3fd9
+                    className="form-check mat-mdc-checkbox"
+                    onClick={() => setTab("all")}
+                  >
+                    <input
+                      data-v-01cb3fd9
+                      className="form-check-input"
+                      type="radio"
+                      id="pageFilterall"
+                      name="pageFilterGroup"
+                      defaultValue="all"
+                    />
+                    <label
+                      data-v-01cb3fd9
+                      className={`form-check-label  ${tab === "all" ? "active" : ""}`}
+                      htmlFor="pageFilterall"
+                    >
+                      All
+                    </label>
+                  </div>
+                  {matchOdds?.length > 0 && (
+                    <div
+                      onClick={() => setTab("match_odds")}
+                      data-v-01cb3fd9
+                      className="form-check mat-mdc-checkbox"
+                    >
+                      <input
+                        data-v-01cb3fd9
+                        className="form-check-input"
+                        type="radio"
+                        id="pageFiltermatch_odds"
+                        name="pageFilterGroup"
+                        defaultValue="match_odds"
+                      />
+                      <label
+                        data-v-01cb3fd9
+                        className={`form-check-label  ${tab === "match_odds" ? "active" : ""}`}
+                        htmlFor="pageFiltermatch_odds"
+                      >
+                        Match Odds
+                      </label>
+                    </div>
+                  )}
+                  {bookmaker?.length > 0 && (
+                    <div
+                      onClick={() => setTab("bookmaker")}
+                      data-v-01cb3fd9
+                      className="form-check mat-mdc-checkbox"
+                    >
+                      <input
+                        data-v-01cb3fd9
+                        className="form-check-input"
+                        type="radio"
+                        id="pageFilterbookmakers"
+                        name="pageFilterGroup"
+                        defaultValue="bookmakers"
+                      />
+                      <label
+                        data-v-01cb3fd9
+                        className={`form-check-label  ${tab === "bookmaker" ? "active" : ""}`}
+                        htmlFor="pageFilterbookmakers"
+                      >
+                        Bookmakers
+                      </label>
+                    </div>
+                  )}
+                  {fancyData?.length > 0 && (
+                    <div
+                      onClick={() => setTab("fancy")}
+                      data-v-01cb3fd9
+                      className="form-check mat-mdc-checkbox"
+                    >
+                      <input
+                        data-v-01cb3fd9
+                        className="form-check-input"
+                        type="radio"
+                        id="pageFilterfancy_filters"
+                        name="pageFilterGroup"
+                        defaultValue="fancy_filters"
+                      />
+                      <label
+                        data-v-01cb3fd9
+                        className={`form-check-label  ${tab === "fancy" ? "active" : ""}`}
+                        htmlFor="pageFilterfancy_filters"
+                      >
+                        Fancy
+                      </label>
+                    </div>
+                  )}
 
-              <div data-v-01cb3fd9 className="mat-mdc-wrap">
-                <div
-                  data-v-01cb3fd9
-                  className="form-check mat-mdc-checkbox"
-                  onClick={() => setTab("all")}
-                >
-                  <input
-                    data-v-01cb3fd9
-                    className="form-check-input"
-                    type="radio"
-                    id="pageFilterall"
-                    name="pageFilterGroup"
-                    defaultValue="all"
-                  />
-                  <label
-                    data-v-01cb3fd9
-                    className={`form-check-label  ${tab === "all" ? "active" : ""}`}
-                    htmlFor="pageFilterall"
-                  >
-                    All
-                  </label>
+                  {tiedMatch?.length > 0 && (
+                    <div
+                      onClick={() => setTab("tied")}
+                      data-v-01cb3fd9
+                      className="form-check mat-mdc-checkbox"
+                    >
+                      <input
+                        data-v-01cb3fd9
+                        className="form-check-input"
+                        type="radio"
+                        id="pageFilterother_match"
+                        name="pageFilterGroup"
+                        defaultValue="other_match"
+                      />
+                      <label
+                        data-v-01cb3fd9
+                        className={`form-check-label  ${tab === "tied" ? "active" : ""}`}
+                        htmlFor="pageFilterother_match"
+                      >
+                        Tied
+                      </label>
+                    </div>
+                  )}
                 </div>
-                <div
-                  onClick={() => setTab("match_odds")}
-                  data-v-01cb3fd9
-                  className="form-check mat-mdc-checkbox"
-                >
-                  <input
-                    data-v-01cb3fd9
-                    className="form-check-input"
-                    type="radio"
-                    id="pageFiltermatch_odds"
-                    name="pageFilterGroup"
-                    defaultValue="match_odds"
-                  />
-                  <label
-                    data-v-01cb3fd9
-                    className={`form-check-label  ${tab === "match_odds" ? "active" : ""}`}
-                    htmlFor="pageFiltermatch_odds"
-                  >
-                    Match Odds
-                  </label>
-                </div>
-                <div
-                  onClick={() => setTab("bookmaker")}
-                  data-v-01cb3fd9
-                  className="form-check mat-mdc-checkbox"
-                >
-                  <input
-                    data-v-01cb3fd9
-                    className="form-check-input"
-                    type="radio"
-                    id="pageFilterbookmakers"
-                    name="pageFilterGroup"
-                    defaultValue="bookmakers"
-                  />
-                  <label
-                    data-v-01cb3fd9
-                    className={`form-check-label  ${tab === "bookmaker" ? "active" : ""}`}
-                    htmlFor="pageFilterbookmakers"
-                  >
-                    Bookmakers
-                  </label>
-                </div>
-                <div
-                  onClick={() => setTab("fancy")}
-                  data-v-01cb3fd9
-                  className="form-check mat-mdc-checkbox"
-                >
-                  <input
-                    data-v-01cb3fd9
-                    className="form-check-input"
-                    type="radio"
-                    id="pageFilterfancy_filters"
-                    name="pageFilterGroup"
-                    defaultValue="fancy_filters"
-                  />
-                  <label
-                    data-v-01cb3fd9
-                    className={`form-check-label  ${tab === "fancy" ? "active" : ""}`}
-                    htmlFor="pageFilterfancy_filters"
-                  >
-                    Fancy
-                  </label>
-                </div>
-                <div
-                  onClick={() => setTab("tied")}
-                  data-v-01cb3fd9
-                  className="form-check mat-mdc-checkbox"
-                >
-                  <input
-                    data-v-01cb3fd9
-                    className="form-check-input"
-                    type="radio"
-                    id="pageFilterother_match"
-                    name="pageFilterGroup"
-                    defaultValue="other_match"
-                  />
-                  <label
-                    data-v-01cb3fd9
-                    className={`form-check-label  ${tab === "tied" ? "active" : ""}`}
-                    htmlFor="pageFilterother_match"
-                  >
-                    Tied
-                  </label>
-                </div>
-              </div>
+              )}
               {eventTypeId == 2 && data?.score && (
                 <TennisScore eventTypeId={eventTypeId} score={data?.score} />
               )}
@@ -333,6 +350,9 @@ const EventDetails = () => {
               {(tab === "fancy" || tab === "all") &&
                 data?.result?.length > 0 && <Fancy data={data?.result} />}
 
+              {eventTypeId == 7 || eventTypeId == 4339 ? (
+                <HorseGreyhoundEventDetails data={data?.result} />
+              ) : null}
               {(tab === "tied" || tab === "all") && tiedMatch?.length > 0 && (
                 <MatchOdds data={tiedMatch} />
               )}
