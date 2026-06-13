@@ -4,6 +4,7 @@ import { Settings } from "../../../api";
 import { useState } from "react";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
 import Search from "./Search";
+import { latestEvent } from "../../../static/latest-event";
 
 const HomeNavigationBar = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -58,7 +59,27 @@ const HomeNavigationBar = () => {
               </div>
             </a>
           </li>
-
+          {latestEvent
+            ?.filter((item) => item?.show)
+            ?.map((item) => {
+              return (
+                <li key={item.eventName} data-v-5e69ccab className="nav-item">
+                  <a
+                    onClick={() => navigate("?eventTypeId=4")}
+                    data-v-5e69ccab
+                    className={`nav-link  `}
+                  >
+                    <img
+                      data-v-5e69ccab
+                      src="/assets/tb-cricket-player-with-bat-CvG7IKFf.svg"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span data-v-5e69ccab>{item.eventName}</span>
+                  </a>
+                </li>
+              );
+            })}
           <li data-v-5e69ccab className="nav-item">
             <a
               onClick={() => navigate("?eventTypeId=4")}
