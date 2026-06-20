@@ -25,9 +25,11 @@ const DepositReport = () => {
   const [image, setImage] = useState("");
 
   useEffect(() => {
-    if (accountStatement?.length > 0) {
+    if (accountStatement?.result?.length > 0) {
       const categories = Array.from(
-        new Set(accountStatement?.map((item) => item?.date?.split(" ")?.[0])),
+        new Set(
+          accountStatement?.result?.map((item) => item?.date?.split(" ")?.[0]),
+        ),
       );
       setCategory(categories);
     }
@@ -46,12 +48,12 @@ const DepositReport = () => {
         <ImageModal setShowModal={setShowModal} image={image} />
       )}
       <div className="main-content  ">
-        {accountStatement?.length > 0 ? (
+        {accountStatement?.result?.length > 0 ? (
           category?.map((category, i) => {
             return (
               <div key={i}>
                 <span className="date-separator  "> {category}</span>
-                {accountStatement
+                {accountStatement?.result
                   ?.filter((item) => item?.date?.split(" ")?.[0] === category)
                   ?.map((data, i) => {
                     return (

@@ -212,7 +212,6 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
     }
   };
 
-  console.log(placeBetValues);
   return (
     <div
       data-v-01cb3fd9

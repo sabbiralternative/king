@@ -28,9 +28,11 @@ const WithdrawReport = () => {
   const [category, setCategory] = useState();
 
   useEffect(() => {
-    if (withdrawStatement?.length > 0) {
+    if (withdrawStatement?.result?.length > 0) {
       const categories = Array.from(
-        new Set(withdrawStatement?.map((item) => item?.date?.split(" ")?.[0])),
+        new Set(
+          withdrawStatement?.result?.map((item) => item?.date?.split(" ")?.[0]),
+        ),
       );
       setCategory(categories);
     }
@@ -64,12 +66,12 @@ const WithdrawReport = () => {
         <ImageModal setShowModal={setShowModal} image={image} />
       )}
       <div className="main-content  ">
-        {withdrawStatement?.length > 0 ? (
+        {withdrawStatement?.result?.length > 0 ? (
           category?.map((category, i) => {
             return (
               <div key={i}>
                 <span className="date-separator  "> {category}</span>
-                {withdrawStatement
+                {withdrawStatement?.result
                   ?.filter((item) => item?.date?.split(" ")?.[0] === category)
                   ?.map((data, i) => {
                     return (
