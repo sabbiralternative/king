@@ -65,7 +65,7 @@ const HomeNavigationBar = () => {
               return (
                 <li key={item.eventName} data-v-5e69ccab className="nav-item">
                   <a
-                    onClick={() => navigate("?eventTypeId=4")}
+                    onClick={() => navigate(item.pathname)}
                     data-v-5e69ccab
                     className={`nav-link  `}
                   >
