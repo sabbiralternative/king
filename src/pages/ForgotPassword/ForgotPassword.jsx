@@ -8,8 +8,12 @@ import {
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Settings } from "../../api";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const ForgotPassword = () => {
+  const { valueByLanguage } = useLanguage();
   const { logo } = useLogo();
   const navigate = useNavigate();
   const [getOTP] = useGetOtpMutation();
@@ -261,7 +265,10 @@ const ForgotPassword = () => {
                       type="submit"
                       className="btn button-login btn-login loader-btn"
                     >
-                      Change Password{" "}
+                      {languageValue(
+                        valueByLanguage,
+                        LanguageKey.CHANGE_PASSWORD,
+                      )}
                       <span data-v-e4dc66ac>
                         <b data-v-e4dc66ac />
                         <b data-v-e4dc66ac />

@@ -5,8 +5,13 @@ import { useState } from "react";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
 import Search from "./Search";
 import { latestEvent } from "../../../static/latest-event";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const HomeNavigationBar = () => {
+  const { valueByLanguage } = useLanguage();
+
   const [showSearch, setShowSearch] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const navigate = useNavigate();
@@ -92,7 +97,9 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>&nbsp;cricket</span>
+              <span data-v-5e69ccab>
+                &nbsp; {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+              </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -107,7 +114,9 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>&nbsp;Football</span>
+              <span data-v-5e69ccab>
+                &nbsp;{languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+              </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -122,7 +131,9 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>&nbsp;tennis</span>
+              <span data-v-5e69ccab>
+                &nbsp;{languageValue(valueByLanguage, LanguageKey.TENNIS)}
+              </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -137,7 +148,9 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>Kabaddi </span>
+              <span data-v-5e69ccab>
+                {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
+              </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -167,7 +180,9 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>Horse </span>
+              <span data-v-5e69ccab>
+                {languageValue(valueByLanguage, LanguageKey.HORSE)}{" "}
+              </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -182,7 +197,9 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>Greyhound </span>
+              <span data-v-5e69ccab>
+                {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}{" "}
+              </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">

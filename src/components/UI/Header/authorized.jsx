@@ -1,9 +1,16 @@
+import images from "../../../assets/images";
 import useBalance from "../../../hooks/balance";
 import { useNavigate } from "react-router-dom";
+import Language from "../../modals/Language";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { useState } from "react";
+import { Settings } from "../../../api";
 
 export const Authorized = () => {
+  const { language } = useLanguage();
+  const [showLanguage, setShowLanguage] = useState(false);
   const navigate = useNavigate();
-  const { data, refetch } = useBalance();
+  const { data } = useBalance();
 
   return (
     <div data-v-a601f501 className="balance">
@@ -28,7 +35,7 @@ export const Authorized = () => {
         </div>
 
         <div data-v-a601f501 className="reload-banking-btn">
-          <div data-v-a601f501 className="login-refresh-MAcnt-btn">
+          {/* <div data-v-a601f501 className="login-refresh-MAcnt-btn">
             <button
               onClick={() => refetch()}
               data-v-a601f501
@@ -42,7 +49,7 @@ export const Authorized = () => {
                 alt=""
               />
             </button>
-          </div>
+          </div> */}
           <div data-v-a601f501 className="acc-setting-btn">
             <button
               onClick={() => navigate("/settings")}
@@ -57,6 +64,53 @@ export const Authorized = () => {
                 alt=""
               />
             </button>
+          </div>
+          <div data-v-a601f501 className="acc-setting-btn">
+            <div
+              style={{
+                position: "relative",
+              }}
+            >
+              {Settings.language && (
+                <button
+                  className="header_btns"
+                  onClick={() => setShowLanguage((prev) => !prev)}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "end",
+                      background: "transparent",
+                      border: "none",
+                      gap: "0px",
+                      marginTop: "5px",
+                    }}
+                  >
+                    <img
+                      style={{
+                        height: "20px",
+                        width: "20px",
+                      }}
+                      src={images.globe}
+                      alt=""
+                    />
+                    <p
+                      style={{
+                        margin: "0px",
+                        fontSize: "10px",
+                        textTransform: "capitalize",
+                        color: "white",
+                      }}
+                    >
+                      {language || "EN"}
+                    </p>
+                  </div>
+                </button>
+              )}
+              {showLanguage && <Language setShowLanguage={setShowLanguage} />}
+            </div>
           </div>
         </div>
       </div>

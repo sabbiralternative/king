@@ -14,8 +14,15 @@ import Error from "../../modals/Error/Error";
 import Notification from "./Notification";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import BuildVersion from "../../modals/BuildVersion/BuildVersion";
+import { useLanguage } from "../../../context/LanguageProvider";
+import images from "../../../assets/images";
+import Language from "../../modals/Language";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Header = () => {
+  const { language, valueByLanguage, setLanguage } = useLanguage();
+  const [showLanguage, setShowLanguage] = useState(false);
   const stored_build_version = localStorage.getItem("build_version");
   const [showBuildVersion, setShowBuildVersion] = useState(false);
   const location = useLocation();
@@ -72,6 +79,10 @@ const Header = () => {
       }
     }
   }, [stored_build_version]);
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem("language") || "english");
+  }, [setLanguage]);
 
   if (Settings.app_only && !closePopupForForever) {
     return <Error />;
@@ -135,7 +146,7 @@ const Header = () => {
                       type="button"
                       className="btn btn-login-1"
                     >
-                      Login
+                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                       <i
                         data-v-a601f501
                         className="fa-solid fa-right-to-bracket"
@@ -148,13 +159,59 @@ const Header = () => {
                         type="button"
                         className="btn btn-login-1"
                       >
-                        Register
+                        {languageValue(valueByLanguage, LanguageKey.REGISTER)}
                         <i
                           data-v-a601f501
                           className="fa-solid fa-right-to-bracket"
                         />
                       </button>
                     )}
+                    <div
+                      style={{
+                        position: "relative",
+                      }}
+                    >
+                      {Settings.language && (
+                        <button
+                          className="btn btn-login-1"
+                          onClick={() => setShowLanguage((prev) => !prev)}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "end",
+                              background: "transparent",
+                              border: "none",
+                              gap: "0px",
+                            }}
+                          >
+                            <img
+                              style={{
+                                height: "20px",
+                                width: "20px",
+                              }}
+                              src={images.globe}
+                              alt=""
+                            />
+                            <p
+                              style={{
+                                margin: "0px",
+                                fontSize: "10px",
+                                textTransform: "capitalize",
+                                color: "white",
+                              }}
+                            >
+                              {language || "EN"}
+                            </p>
+                          </div>
+                        </button>
+                      )}
+                      {showLanguage && (
+                        <Language setShowLanguage={setShowLanguage} />
+                      )}
+                    </div>
                   </div>
                 </div>
               )}

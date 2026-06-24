@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const Sports = () => {
+  const { valueByLanguage } = useLanguage();
   return (
     <div data-v-2f3cedbb>
       <div data-v-39546433 className="all-sports-tabs-wrapper">
@@ -29,7 +33,7 @@ const Sports = () => {
                   alt=""
                 />
                 <span data-v-39546433 className="text-capitalize">
-                  cricket
+                  {languageValue(valueByLanguage, LanguageKey.CRICKET)}
                 </span>
               </Link>
             </li>
@@ -42,7 +46,7 @@ const Sports = () => {
                   alt=""
                 />
                 <span data-v-39546433 className="text-capitalize">
-                  Football
+                  {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
                 </span>
               </Link>
             </li>
@@ -55,7 +59,7 @@ const Sports = () => {
                   alt=""
                 />
                 <span data-v-39546433 className="text-capitalize">
-                  tennis
+                  {languageValue(valueByLanguage, LanguageKey.TENNIS)}
                 </span>
               </Link>
             </li>
@@ -69,7 +73,7 @@ const Sports = () => {
                   alt=""
                 />
                 <span data-v-39546433 className="text-capitalize">
-                  Kabaddi{" "}
+                  {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
                 </span>
               </Link>
             </li>
@@ -95,7 +99,7 @@ const Sports = () => {
                   alt=""
                 />
                 <span data-v-39546433 className="text-capitalize">
-                  Horse
+                  {languageValue(valueByLanguage, LanguageKey.HORSE)}
                 </span>
               </Link>
             </li>
@@ -108,7 +112,7 @@ const Sports = () => {
                   alt=""
                 />
                 <span data-v-39546433 className="text-capitalize">
-                  Greyhound
+                  {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
                 </span>
               </Link>
             </li>
@@ -142,7 +146,7 @@ const Sports = () => {
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      cricket
+                      {languageValue(valueByLanguage, LanguageKey.CRICKET)}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">
@@ -172,7 +176,7 @@ const Sports = () => {
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      Football
+                      {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">
@@ -202,7 +206,7 @@ const Sports = () => {
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      tennis
+                      {languageValue(valueByLanguage, LanguageKey.TENNIS)}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">
@@ -232,7 +236,7 @@ const Sports = () => {
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      Kabaddi{" "}
+                      {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">
@@ -293,7 +297,7 @@ const Sports = () => {
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      Horse
+                      {languageValue(valueByLanguage, LanguageKey.HORSE)}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">
@@ -323,7 +327,7 @@ const Sports = () => {
                       className="sport-icon"
                     />
                     <span data-v-39546433 className="text-capitalize">
-                      Greyhound
+                      {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
                     </span>
                   </div>
                   <div data-v-39546433 className="nav-next-btn">

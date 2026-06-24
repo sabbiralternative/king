@@ -2,8 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../redux/features/auth/authSlice";
 import { Settings } from "../../api";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const Account = () => {
+  const { valueByLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,12 +51,12 @@ const Account = () => {
           <ul>
             <li>
               <Link to="/deposit" className>
-                Deposit
+                {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
               </Link>
             </li>
             <li>
               <Link to="/withdraw" className>
-                Withdraw
+                {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
               </Link>
             </li>
             <li>
@@ -68,12 +72,12 @@ const Account = () => {
 
             <li>
               <Link to="/my-bank-details" className>
-                My Bank Details
+                {languageValue(valueByLanguage, LanguageKey.MY_BANK_DETAILS)}
               </Link>
             </li>
             <li>
               <Link to="/bonus-statement" className>
-                Bonus Statement
+                {languageValue(valueByLanguage, LanguageKey.BONUS_STATEMENT)}
               </Link>
             </li>
             {Settings?.referral && (
@@ -111,7 +115,7 @@ const Account = () => {
             data-bs-toggle="modal"
             data-bs-target="#logoutmodal"
           >
-            LOGOUT
+            {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
             <img
               src="/assets/sign-out-DPrmzSef.png"
               alt="sign"

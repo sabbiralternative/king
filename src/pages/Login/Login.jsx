@@ -8,8 +8,12 @@ import { setUser } from "../../redux/features/auth/authSlice";
 import { setShowBanner } from "../../redux/features/global/globalSlice";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const Login = () => {
+  const { valueByLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const navigate = useNavigate();
   const { logo } = useLogo();
@@ -196,7 +200,7 @@ const Login = () => {
                       type="submit"
                       className="btn button-login btn-login loader-btn"
                     >
-                      Login
+                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                     </button>
                   </div>
                   <div className="form-group">
@@ -254,7 +258,7 @@ const Login = () => {
                 <div data-v-e4dc66ac className="whats-with-acc">
                   <span data-v-e4dc66ac>Don&apos;t have any Account? </span>
                   <Link to="/register" className="yol-bd-font">
-                    Register
+                    {languageValue(valueByLanguage, LanguageKey.REGISTER)}
                   </Link>
                 </div>
               </form>

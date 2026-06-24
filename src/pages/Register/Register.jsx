@@ -11,8 +11,12 @@ import toast from "react-hot-toast";
 import { Settings } from "../../api";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { setShowBanner } from "../../redux/features/global/globalSlice";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const Register = () => {
+  const { valueByLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const referralCode = localStorage.getItem("referralCode");
   const { logo } = useLogo();
@@ -310,7 +314,7 @@ const Register = () => {
                       type="submit"
                       className="btn button-login btn-login loader-btn"
                     >
-                      Register{" "}
+                      {languageValue(valueByLanguage, LanguageKey.REGISTER)}{" "}
                       <span data-v-e4dc66ac>
                         <b data-v-e4dc66ac />
                         <b data-v-e4dc66ac />
@@ -362,7 +366,7 @@ const Register = () => {
                   <div data-v-e4dc66ac className="whats-with-acc">
                     <span data-v-e4dc66ac>Already Have An Account? </span>
                     <Link data-v-e4dc66ac to="/login" className="yol-bd-font">
-                      Login
+                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                     </Link>
                   </div>
                 </form>

@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Footer = () => {
+  const { valueByLanguage } = useLanguage();
   const location = useLocation();
   const { token } = useSelector((state) => state.auth);
 
@@ -27,7 +31,7 @@ const Footer = () => {
                   src="/assets/home-DRd6byi1.svg"
                   className="icon-home"
                 />
-                Home
+                {languageValue(valueByLanguage, LanguageKey.HOME)}
               </Link>
             </li>
             <li data-v-59732b1e>

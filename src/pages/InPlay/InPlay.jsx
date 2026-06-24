@@ -2,16 +2,20 @@ import moment from "moment";
 import { useGroupQuery } from "../../hooks/group";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const InPlay = () => {
+  const { valueByLanguage } = useLanguage();
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
   const { data } = useGroupQuery({ sportsType: 0 });
   const [tab, setTab] = useState("inPlay");
   const eventName = {
-    1: "Football",
-    2: "Tennis",
-    4: "Cricket",
+    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
+    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
+    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
   };
 
   const todayMoment = moment().startOf("day");
