@@ -14,6 +14,7 @@ import Score from "../../components/modules/EventDetails/Score";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
 import OpenBets from "../../components/modals/OpenBets/OpenBets";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
+import Premium from "../../components/modules/EventDetails/Premium";
 
 const EventDetails = () => {
   const [showOpenBets, setShowOpenBets] = useState(false);
@@ -345,6 +346,9 @@ const EventDetails = () => {
               )}
               {(tab === "match_odds" || tab === "all") &&
                 matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
+              {data?.premium && data?.premium?.eventId && (
+                <Premium premium={data?.premium} />
+              )}
               {(tab === "bookmaker" || tab === "all") &&
                 bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
               {(tab === "fancy" || tab === "all") &&
