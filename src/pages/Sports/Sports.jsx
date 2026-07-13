@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageProvider";
 import { languageValue } from "../../utils/language";
 import { LanguageKey } from "../../const";
+import { eventNameList } from "../../static/event-name-list";
 
 const Sports = () => {
   const { valueByLanguage } = useLanguage();
@@ -116,6 +117,24 @@ const Sports = () => {
                 </span>
               </Link>
             </li>
+            {eventNameList.map((item) => {
+              return (
+                <li key={item.id} data-v-39546433 className>
+                  <Link to="/?eventTypeId=6" data-v-39546433 className="active">
+                    <img
+                      style={{ filter: "none" }}
+                      data-v-39546433
+                      loading="lazy"
+                      src={item.image}
+                      alt=""
+                    />
+                    <span data-v-39546433 className="text-capitalize">
+                      {item.name}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div
@@ -342,6 +361,41 @@ const Sports = () => {
                   </div>
                 </Link>
               </li>
+              {eventNameList.map((item) => {
+                return (
+                  <li key={item.id} data-v-39546433 className="nav-item">
+                    <Link
+                      to={`/?eventTypeId=${item.id}`}
+                      data-v-39546433
+                      className="nav-link active"
+                    >
+                      <div data-v-39546433 className="sports-name-lft">
+                        <img
+                          style={{ filter: "none" }}
+                          data-v-39546433
+                          loading="lazy"
+                          src={item.image}
+                          alt=""
+                          className="sport-icon"
+                        />
+                        <span data-v-39546433 className="text-capitalize">
+                          {item.name}
+                        </span>
+                      </div>
+                      <div data-v-39546433 className="nav-next-btn">
+                        <span data-v-39546433>
+                          <img
+                            data-v-39546433
+                            loading="lazy"
+                            src="/assets/down-open-icons-BMVvhj-B.png"
+                            alt=""
+                          />
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>

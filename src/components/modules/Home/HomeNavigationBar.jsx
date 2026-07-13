@@ -8,6 +8,7 @@ import { latestEvent } from "../../../static/latest-event";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { eventNameList } from "../../../static/event-name-list";
 
 const HomeNavigationBar = () => {
   const { valueByLanguage } = useLanguage();
@@ -202,6 +203,26 @@ const HomeNavigationBar = () => {
               </span>
             </a>
           </li>
+          {eventNameList.map((item) => {
+            return (
+              <li key={item.id} data-v-5e69ccab className="nav-item">
+                <a
+                  onClick={() => navigate(`?eventTypeId=${item.id}`)}
+                  data-v-5e69ccab
+                  className={`nav-link  ${eventTypeId === item.id ? "active" : ""}`}
+                >
+                  <img
+                    style={{ filter: "none" }}
+                    data-v-5e69ccab
+                    src={item.image}
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span data-v-5e69ccab>{item.name} </span>
+                </a>
+              </li>
+            );
+          })}
           <li data-v-5e69ccab className="nav-item">
             <a
               data-v-5e69ccab
