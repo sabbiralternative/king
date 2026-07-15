@@ -346,9 +346,7 @@ const EventDetails = () => {
               )}
               {(tab === "match_odds" || tab === "all") &&
                 matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
-              {data?.premium && data?.premium?.eventId && (
-                <Premium premium={data?.premium} />
-              )}
+
               {(tab === "bookmaker" || tab === "all") &&
                 bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
               {(tab === "fancy" || tab === "all") &&
@@ -359,6 +357,9 @@ const EventDetails = () => {
               ) : null}
               {(tab === "tied" || tab === "all") && tiedMatch?.length > 0 && (
                 <MatchOdds data={tiedMatch} />
+              )}
+              {data?.premium && data?.premium?.eventId && (
+                <Premium premium={data?.premium} />
               )}
             </div>
           </div>
