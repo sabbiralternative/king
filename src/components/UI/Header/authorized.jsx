@@ -2,12 +2,12 @@ import images from "../../../assets/images";
 import useBalance from "../../../hooks/balance";
 import { useNavigate } from "react-router-dom";
 import Language from "../../modals/Language";
-import { useLanguage } from "../../../context/LanguageProvider";
+// import { useLanguage } from "../../../context/LanguageProvider";
 import { useState } from "react";
 import { Settings } from "../../../api";
 
 export const Authorized = () => {
-  const { language } = useLanguage();
+  // const { language } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const navigate = useNavigate();
   const { data } = useBalance();
@@ -85,7 +85,7 @@ export const Authorized = () => {
                       background: "transparent",
                       border: "none",
                       gap: "0px",
-                      marginTop: "5px",
+                      // marginTop: "5px",
                     }}
                   >
                     <img
@@ -104,7 +104,7 @@ export const Authorized = () => {
                         color: "white",
                       }}
                     >
-                      {language || "EN"}
+                      {/* {language || "EN"} */}
                     </p>
                   </div>
                 </button>

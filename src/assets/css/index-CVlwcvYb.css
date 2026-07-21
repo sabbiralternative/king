@@ -12440,7 +12440,7 @@ ul.pagination.pagination-circle {
   width: 100%;
   background: var(--bottom-nav-bg);
   color: #fff;
-  z-index: 999;
+  z-index: 0;
   max-width: 768px;
 }
 .mobile-footer-menu li.hide {

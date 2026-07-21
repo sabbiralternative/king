@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
+import { useState } from "react";
+import MiniGames from "../../modals/Minigames/MiniGames";
 
 const SocialLink = () => {
   const { token } = useSelector((state) => state.auth);
-
+  const [showMiniGamesModal, setShowMiniGamesModal] = useState(false);
   const navigateWhatsApp = () => {
     if (token && Settings?.branchWhatsapplink) {
       window.open(Settings?.branchWhatsapplink, "_blank");
@@ -13,7 +15,13 @@ const SocialLink = () => {
     }
   };
   return (
-    <div className="footer-fixed-chat-icn laser-chat container">
+    <div
+      style={{ width: "70px" }}
+      className="footer-fixed-chat-icn laser-chat container"
+    >
+      {showMiniGamesModal && (
+        <MiniGames setShowMiniGamesModal={setShowMiniGamesModal} />
+      )}
       {Settings?.instagramLink && (
         <a
           onClick={() => window.open(Settings?.instagramLink, "_blank")}
@@ -35,6 +43,15 @@ const SocialLink = () => {
           <img loading="lazy" src={images.whatsApp} alt="chat" />
         </a>
       )}
+
+      <a onClick={() => setShowMiniGamesModal(true)} aria-label="Open chat">
+        <img
+          loading="lazy"
+          src="/icon/uv_games-CkYT1PYz.gif"
+          style={{ width: "50px" }}
+          alt="chat"
+        />
+      </a>
     </div>
   );
 };

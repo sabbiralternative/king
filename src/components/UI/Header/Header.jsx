@@ -21,7 +21,7 @@ import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 
 const Header = () => {
-  const { language, valueByLanguage, setLanguage } = useLanguage();
+  const { valueByLanguage, setLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const stored_build_version = localStorage.getItem("build_version");
   const [showBuildVersion, setShowBuildVersion] = useState(false);
@@ -203,7 +203,7 @@ const Header = () => {
                                 color: "white",
                               }}
                             >
-                              {language || "EN"}
+                              {/* {language || "EN"} */}
                             </p>
                           </div>
                         </button>
