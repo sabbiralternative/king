@@ -73,24 +73,24 @@ const DownloadAPK = () => {
               ></path>
             </svg>
           </div>
+          {Settings?.apk_banner ? (
+            <img
+              onClick={handleDownload}
+              style={{ borderRadius: "12px" }}
+              src={Settings.apk_banner}
+              alt="apk_banner"
+            />
+          ) : (
+            <div className="promo-card">
+              <header className="promo-header">
+                <div className="header-content">
+                  <img src={images.install_android} alt="install_android" />
+                  <h1 className="main-title" style={{ fontSize: "18px" }}>
+                    Download APK for Premium Gaming Experience
+                  </h1>
+                </div>
+              </header>
 
-          <div className="promo-card">
-            <header className="promo-header">
-              <div className="header-content">
-                <img src={images.install_android} alt="install_android" />
-                <h1 className="main-title" style={{ fontSize: "18px" }}>
-                  Download APK for Premium Gaming Experience
-                </h1>
-              </div>
-            </header>
-            {Settings?.apk_banner ? (
-              <img
-                onClick={handleDownload}
-                style={{ borderRadius: "12px" }}
-                src={Settings.apk_banner}
-                alt="apk_banner"
-              />
-            ) : (
               <main className="promo-body">
                 <p className="intro-text">
                   Kabhi-kabhi website slow ho sakti hai ya link update ho jata
@@ -132,8 +132,8 @@ const DownloadAPK = () => {
                   <span>Download Official App Now ↓</span>
                 </a>
               </main>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
