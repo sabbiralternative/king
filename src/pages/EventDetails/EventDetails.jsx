@@ -15,8 +15,10 @@ import TennisScore from "../../components/modules/EventDetails/TennisScore";
 import OpenBets from "../../components/modals/OpenBets/OpenBets";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 import Premium from "../../components/modules/EventDetails/Premium";
+import ToggleButtons from "../../components/modules/EventDetails/ToggleButtons";
 
 const EventDetails = () => {
+  const [fancyPremiumTab, setFancyPremiumTab] = useState("");
   const [showOpenBets, setShowOpenBets] = useState(false);
   const [tab, setTab] = useState("all");
   const [sportsVideo, { data: iframe }] = useVideoMutation();
@@ -349,17 +351,28 @@ const EventDetails = () => {
 
               {(tab === "bookmaker" || tab === "all") &&
                 bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
-              {(tab === "fancy" || tab === "all") &&
-                data?.result?.length > 0 && <Fancy data={data?.result} />}
+              {data && tab === "all" && (
+                <ToggleButtons
+                  data={data}
+                  fancy={fancyData}
+                  setFancyPremiumTab={setFancyPremiumTab}
+                  fancyPremiumTab={fancyPremiumTab}
+                />
+              )}
 
+              {(tab === "fancy" || tab === "all") &&
+                fancyPremiumTab === "fancy" &&
+                data?.result?.length > 0 && <Fancy data={data?.result} />}
+              {data?.premium &&
+                data?.premium?.eventId &&
+                fancyPremiumTab === "premium" && (
+                  <Premium premium={data?.premium} />
+                )}
               {eventTypeId == 7 || eventTypeId == 4339 ? (
                 <HorseGreyhoundEventDetails data={data?.result} />
               ) : null}
               {(tab === "tied" || tab === "all") && tiedMatch?.length > 0 && (
                 <MatchOdds data={tiedMatch} />
-              )}
-              {data?.premium && data?.premium?.eventId && (
-                <Premium premium={data?.premium} />
               )}
             </div>
           </div>
