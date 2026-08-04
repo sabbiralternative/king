@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageProvider";
 import { languageValue } from "../../utils/language";
 import { LanguageKey } from "../../const";
+import { FilterLiveVirtual } from "../../utils/filter-live-virtual";
+import LiveVirtual from "../../components/modules/Home/LiveVirtual";
 
 const InPlay = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const { valueByLanguage } = useLanguage();
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
@@ -160,12 +163,16 @@ const InPlay = () => {
                   className="play-days-match inplayMatch-wrap"
                 >
                   {categories?.map((category) => {
-                    const filteredData = Object.entries(finalData).filter(
-                      ([, value]) =>
-                        value.eventTypeId === category &&
-                        value.visible === true,
+                    // const filteredData = Object.entries(finalData).filter(
+                    //   ([, value]) =>
+                    //     value.eventTypeId === category &&
+                    //     value.visible === true,
+                    // );
+                    const filteredData = FilterLiveVirtual(
+                      liveVirtual,
+                      category,
+                      finalData,
                     );
-
                     return (
                       <div key={category} data-v-1354c224 className="tab-set">
                         <div data-v-1354c224 className="tab-panel hero-img">
@@ -178,6 +185,11 @@ const InPlay = () => {
                                 <h3 data-v-1354c224 className="text-capitalize">
                                   {eventName[category]}
                                 </h3>
+                                <LiveVirtual
+                                  setLiveVirtual={setLiveVirtual}
+                                  category={category}
+                                  color="#fff"
+                                />
                               </div>
                               <div className="oneX2" data-v-1354c224>
                                 <div

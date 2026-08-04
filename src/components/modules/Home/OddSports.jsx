@@ -1,8 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGroupQuery } from "../../../hooks/group";
 import HorseGreyhound from "./HorseGreyhound";
+import { useState } from "react";
+import { FilterLiveVirtual } from "../../../utils/filter-live-virtual";
+import LiveVirtual from "./LiveVirtual";
 
 const OddSports = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -11,15 +15,19 @@ const OddSports = () => {
     sportsType: Number(eventTypeId) || 4,
   });
 
-  const groupedData =
-    data && data !== null && Object.keys(data).length > 0
-      ? Object.entries(data)
-          .filter(([, value]) => value.visible === true)
-          .sort(([, a], [, b]) => {
-            return b.inPlay - a.inPlay;
-          })
-      : [];
-
+  // const groupedData =
+  //   data && data !== null && Object.keys(data).length > 0
+  //     ? Object.entries(data)
+  //         .filter(([, value]) => value.visible === true)
+  //         .sort(([, a], [, b]) => {
+  //           return b.inPlay - a.inPlay;
+  //         })
+  //     : [];
+  const groupedData = FilterLiveVirtual(
+    liveVirtual,
+    Number(eventTypeId) || 4,
+    data,
+  );
   const navigateGameList = (eventTypeId, keys) => {
     navigate(`/event-details/${eventTypeId}/${keys}`);
   };
@@ -31,6 +39,10 @@ const OddSports = () => {
           <div data-v-5e69ccab className="mobile-width scrollHeight">
             <div data-v-c9d3df59 className="odds-header-container">
               <div data-v-c9d3df59 className="odds-header">
+                <LiveVirtual
+                  setLiveVirtual={setLiveVirtual}
+                  category={Number(eventTypeId) || 4}
+                />
                 <div data-v-c9d3df59>1</div>
                 <div data-v-c9d3df59>X</div>
                 <div data-v-c9d3df59>2</div>
