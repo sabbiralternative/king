@@ -2,12 +2,13 @@ import images from "../../../assets/images";
 import useBalance from "../../../hooks/balance";
 import { useNavigate } from "react-router-dom";
 import Language from "../../modals/Language";
-// import { useLanguage } from "../../../context/LanguageProvider";
 import { useState } from "react";
 import { Settings } from "../../../api";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 export const Authorized = () => {
-  // const { language } = useLanguage();
+  const { getLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const navigate = useNavigate();
   const { data } = useBalance();
@@ -19,12 +20,13 @@ export const Authorized = () => {
           <ul data-v-a601f501>
             <li data-v-a601f501>
               <a data-v-a601f501 href="Javascript:void(0);">
-                Main PTI <b data-v-a601f501>{data?.availBalance}</b>
+                {getLanguage(LanguageKey.BALANCE)}{" "}
+                <b data-v-a601f501>{data?.availBalance}</b>
               </a>
             </li>
             <li data-v-a601f501>
               <a data-v-a601f501 className="exp-topcount">
-                Exposure ({" "}
+                {getLanguage(LanguageKey.EXPOSURE)} ({" "}
                 <span data-v-a601f501 className="exp">
                   {data?.deductedExposure}
                 </span>{" "}

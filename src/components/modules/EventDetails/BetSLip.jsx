@@ -20,7 +20,10 @@ import {
   handleIncreasePrice,
 } from "../../../utils/editBetSlipPrice";
 import Loader from "../../shared/Loader/Loader";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 const BetSLip = ({ currentPlaceBetEvent }) => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
@@ -373,7 +376,7 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
           data-v-a3bfde67
           className="btn min-btn"
         >
-          Min
+          {getLanguage(LanguageKey.MIN)}
         </button>
         <button
           onClick={() =>
@@ -388,7 +391,7 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
           data-v-a3bfde67
           className="btn max-btn"
         >
-          Max
+          {getLanguage(LanguageKey.MAX)}
         </button>
 
         <button
@@ -398,7 +401,7 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
           data-v-a3bfde67
           className="btn clear-btn"
         >
-          Clear
+          {getLanguage(LanguageKey.CLEAR)}
         </button>
       </div>
       <div data-v-a3bfde67 className="mobilebet-btn">
@@ -408,14 +411,14 @@ const BetSLip = ({ currentPlaceBetEvent }) => {
           data-v-a3bfde67
           className="btn btn-cancel"
         >
-          Cancel
+          {getLanguage(LanguageKey.CANCEL)}
         </button>
         <button
           onClick={handleOrderBets}
           data-v-a3bfde67
           className="btn btn-betplace filled-stake"
         >
-          Place Bet
+          {getLanguage(LanguageKey.PLACE_BET)}
         </button>
       </div>
     </div>

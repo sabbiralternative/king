@@ -5,13 +5,12 @@ import { useState } from "react";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
 import Search from "./Search";
 import { latestEvent } from "../../../static/latest-event";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { eventNameList } from "../../../static/event-name-list";
+import useLanguage from "../../../hooks/use-language";
 
 const HomeNavigationBar = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
 
   const [showSearch, setShowSearch] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
@@ -61,7 +60,7 @@ const HomeNavigationBar = () => {
                   alt="aviator"
                   loading="lazy"
                 />
-                <span data-v-5e69ccab>Vimaan</span>
+                <span data-v-5e69ccab>{getLanguage(LanguageKey.AVIATOR)}</span>
               </div>
             </a>
           </li>
@@ -99,7 +98,7 @@ const HomeNavigationBar = () => {
                 loading="lazy"
               />
               <span data-v-5e69ccab>
-                &nbsp; {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+                &nbsp; {getLanguage(LanguageKey.CRICKET)}
               </span>
             </a>
           </li>
@@ -116,7 +115,7 @@ const HomeNavigationBar = () => {
                 loading="lazy"
               />
               <span data-v-5e69ccab>
-                &nbsp;{languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+                &nbsp;{getLanguage(LanguageKey.FOOTBALL)}
               </span>
             </a>
           </li>
@@ -133,7 +132,7 @@ const HomeNavigationBar = () => {
                 loading="lazy"
               />
               <span data-v-5e69ccab>
-                &nbsp;{languageValue(valueByLanguage, LanguageKey.TENNIS)}
+                &nbsp;{getLanguage(LanguageKey.TENNIS)}
               </span>
             </a>
           </li>
@@ -149,9 +148,7 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>
-                {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
-              </span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.KABADDI)} </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -166,7 +163,7 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>Election </span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.POLITICS)} </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -181,9 +178,7 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>
-                {languageValue(valueByLanguage, LanguageKey.HORSE)}{" "}
-              </span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.HORSE)} </span>
             </a>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -198,9 +193,7 @@ const HomeNavigationBar = () => {
                 alt=""
                 loading="lazy"
               />
-              <span data-v-5e69ccab>
-                {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}{" "}
-              </span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.GREYHOUND)} </span>
             </a>
           </li>
           {eventNameList.map((item) => {
@@ -218,7 +211,7 @@ const HomeNavigationBar = () => {
                     alt=""
                     loading="lazy"
                   />
-                  <span data-v-5e69ccab>{item.name} </span>
+                  <span data-v-5e69ccab>{getLanguage(item.name)} </span>
                 </a>
               </li>
             );
@@ -236,7 +229,7 @@ const HomeNavigationBar = () => {
                 src="/assets/tb-sports-book-CMNk2rvf.svg"
                 alt=""
               />
-              <span data-v-5e69ccab>Sports Book</span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.SPORTSBOOK)}</span>
             </a>
           </li>
 
@@ -254,7 +247,7 @@ const HomeNavigationBar = () => {
                 src="/assets/tb-poker-cards-D3T_YA8Y.svg"
                 alt=""
               />
-              <span data-v-5e69ccab>Mac88</span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.MAC88)}</span>
             </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -271,7 +264,9 @@ const HomeNavigationBar = () => {
                 src="/assets/tb-poker-cards-D3T_YA8Y.svg"
                 alt=""
               />
-              <span data-v-5e69ccab>Live Casino</span>
+              <span data-v-5e69ccab>
+                {getLanguage(LanguageKey.LIVE_CASINO)}
+              </span>
             </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -287,7 +282,7 @@ const HomeNavigationBar = () => {
                 src="/assets/tb-poker-cards-D3T_YA8Y.svg"
                 alt=""
               />
-              <span data-v-5e69ccab>Slots</span>
+              <span data-v-5e69ccab>{getLanguage(LanguageKey.SLOTS)}</span>
             </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -303,7 +298,9 @@ const HomeNavigationBar = () => {
                 src="/assets/tb-poker-cards-D3T_YA8Y.svg"
                 alt=""
               />
-              <span data-v-5e69ccab>Crash Games</span>
+              <span data-v-5e69ccab>
+                {getLanguage(LanguageKey.CRASH_GAMES)}
+              </span>
             </Link>
           </li>
           <li data-v-5e69ccab className="nav-item">
@@ -319,7 +316,9 @@ const HomeNavigationBar = () => {
                 src="/assets/tb-poker-cards-D3T_YA8Y.svg"
                 alt=""
               />
-              <span data-v-5e69ccab>Fishing Games</span>
+              <span data-v-5e69ccab>
+                {getLanguage(LanguageKey.FISHING_GAMES)}
+              </span>
             </Link>
           </li>
         </ul>

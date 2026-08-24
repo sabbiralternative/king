@@ -37,7 +37,8 @@ const MainLayout = () => {
 
   return (
     <div id="app">
-      {" "}
+      <meta name="description" content={Settings.metaDescription} />
+      <meta name="keywords" content={Settings.metaKeywords} />{" "}
       <div data-v-2f3cedbb className="container">
         <Header />
         <Outlet />

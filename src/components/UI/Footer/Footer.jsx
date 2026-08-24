@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Footer = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const location = useLocation();
   const { token } = useSelector((state) => state.auth);
 
@@ -31,7 +30,7 @@ const Footer = () => {
                   src="/assets/home-DRd6byi1.svg"
                   className="icon-home"
                 />
-                {languageValue(valueByLanguage, LanguageKey.HOME)}
+                {getLanguage(LanguageKey.HOME)}
               </Link>
             </li>
             <li data-v-59732b1e>
@@ -46,7 +45,7 @@ const Footer = () => {
                   src="/assets/timer-Du_GFUIt.svg"
                   className="icon-inplay"
                 />
-                In-Play
+                {getLanguage(LanguageKey.IN_PLAY)}
               </Link>
             </li>
             <li data-v-59732b1e className="main-nav">
@@ -62,7 +61,7 @@ const Footer = () => {
                   className="icon-sports"
                 />
                 <span data-v-59732b1e className>
-                  Sports
+                  {getLanguage(LanguageKey.SPORTS)}
                 </span>
               </Link>
             </li>
@@ -79,7 +78,7 @@ const Footer = () => {
                   src="/assets/ChipRotate-BiqYdzAx.gif"
                   className="icon-pin"
                 />
-                Casino
+                {getLanguage(LanguageKey.CASINO)}
               </Link>
             </li>
             <li data-v-59732b1e className="cursor-pointer">
@@ -94,7 +93,7 @@ const Footer = () => {
                   src="/assets/user-CM5moiLF.svg"
                   className="icon-account"
                 />
-                Account
+                {getLanguage(LanguageKey.ACCOUNT)}
               </Link>
             </li>
           </ul>

@@ -7,8 +7,11 @@ import Complaint from "../../components/modals/Complaint/Complaint";
 import { Settings } from "../../api";
 import toast from "react-hot-toast";
 import { useBankAccountMutation } from "../../redux/features/deposit/deposit.api";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const WithdrawReport = () => {
+  const { getLanguage } = useLanguage();
   const [deleteWithdraw] = useBankAccountMutation();
   const [complaintId, setComplaintId] = useState(null);
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
@@ -176,14 +179,17 @@ const WithdrawReport = () => {
                                     }
                                     className="px-2 py-1  text-white   "
                                   >
-                                    Cancel Withdraw
+                                    {getLanguage(LanguageKey.CANCEL_WITHDRAWAL)}
                                   </button>
                                 )}
 
                               {data.status === "PENDING" &&
                                 data?.reject_request === 1 && (
                                   <p className="px-2 py-1  text-black   ">
-                                    Withdraw delete request sent.
+                                    {getLanguage(
+                                      LanguageKey.WITHDRAW_DELETE_REQUEST_SENT,
+                                    )}
+                                    .
                                   </p>
                                 )}
                               {Settings.complaint && (
@@ -198,7 +204,7 @@ const WithdrawReport = () => {
                                   }
                                   className="px-2 py-1  text-white   "
                                 >
-                                  Report Issue
+                                  {getLanguage(LanguageKey.REPORT_ISSUE)}
                                 </button>
                               )}
                             </div>
@@ -217,7 +223,7 @@ const WithdrawReport = () => {
           })
         ) : (
           <div className="no-data ng-star-inserted ">
-            <p>No transaction yet!</p>
+            <p>{getLanguage(LanguageKey.NO_TRANSACTION_YET)}!</p>
           </div>
         )}
       </div>

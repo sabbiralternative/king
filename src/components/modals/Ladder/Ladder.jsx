@@ -2,8 +2,11 @@ import { useRef } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Ladder = ({ setLadderData, ladderData }) => {
+  const { getLanguage } = useLanguage();
   const ladderRef = useRef();
 
   useCloseModalClickOutside(ladderRef, () => {
@@ -52,8 +55,8 @@ const Ladder = ({ setLadderData, ladderData }) => {
                 >
                   <thead>
                     <tr>
-                      <th>RUN</th>
-                      <th>POSITION</th>
+                      <th>{getLanguage(LanguageKey.RUN)}</th>
+                      <th>{getLanguage(LanguageKey.POSITION)}</th>
                     </tr>
                   </thead>
                   <tbody>

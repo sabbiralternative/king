@@ -1,5 +1,8 @@
+import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 import "./liveVirtual.css";
 const LiveVirtual = ({ setLiveVirtual, category, color }) => {
+  const { getLanguage } = useLanguage();
   const onChangeLiveVirtual = (type, eventTypeId, isChecked) => {
     const obj = { type, eventTypeId, isChecked };
 
@@ -37,7 +40,7 @@ const LiveVirtual = ({ setLiveVirtual, category, color }) => {
           htmlFor={`checkboxOnein_play-inplay-4-${category}`}
           style={{ color: color }}
         >
-          LIVE
+          {getLanguage(LanguageKey.LIVE)}
         </label>
       </li>
       <li>
@@ -54,7 +57,7 @@ const LiveVirtual = ({ setLiveVirtual, category, color }) => {
           style={{ color: color }}
           htmlFor={`checkboxTwoin_play--inplay--4-${category}`}
         >
-          VIRTUAL
+          {getLanguage(LanguageKey.VIRTUAL)}
         </label>
       </li>
     </ul>

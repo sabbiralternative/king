@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useLogo } from "../../context/ApiProvider";
 import { useState } from "react";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const ChangePassword = () => {
+  const { getLanguage } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -117,7 +120,7 @@ const ChangePassword = () => {
                       type="submit"
                       className="btn button-login btn-login loader-btn"
                     >
-                      Change Password
+                      {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                     </button>
                   </div>
                 </div>

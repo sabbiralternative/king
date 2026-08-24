@@ -14,14 +14,13 @@ import Error from "../../modals/Error/Error";
 import Notification from "./Notification";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import BuildVersion from "../../modals/BuildVersion/BuildVersion";
-import { useLanguage } from "../../../context/LanguageProvider";
 import images from "../../../assets/images";
 import Language from "../../modals/Language";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Header = () => {
-  const { valueByLanguage, setLanguage } = useLanguage();
+  const { getLanguage, setLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const stored_build_version = localStorage.getItem("build_version");
   const [showBuildVersion, setShowBuildVersion] = useState(false);
@@ -146,7 +145,7 @@ const Header = () => {
                       type="button"
                       className="btn btn-login-1"
                     >
-                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                      {getLanguage(LanguageKey.LOGIN)}
                       <i
                         data-v-a601f501
                         className="fa-solid fa-right-to-bracket"
@@ -159,7 +158,7 @@ const Header = () => {
                         type="button"
                         className="btn btn-login-1"
                       >
-                        {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+                        {getLanguage(LanguageKey.REGISTER)}
                         <i
                           data-v-a601f501
                           className="fa-solid fa-right-to-bracket"

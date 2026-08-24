@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const styles = `
   .aura-wolf-wrapper {
@@ -224,6 +226,7 @@ const styles = `
 `;
 
 const IndianCardGames = () => {
+  const { getLanguage } = useLanguage();
   const [showSeeAll, setShowSeeAll] = useState(false);
   const ref = useRef();
   const navigate = useNavigate();
@@ -293,7 +296,9 @@ const IndianCardGames = () => {
             </svg>
 
             <div className="aura-wolf-header-inner">
-              <span className="aura-wolf-title">Indian Card Games</span>
+              <span className="aura-wolf-title">
+                {getLanguage(LanguageKey.INDIAN_CARD_GAMES)}
+              </span>
 
               <div className="aura-wolf-controls">
                 <button

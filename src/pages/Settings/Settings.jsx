@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import { useEditButtonValuesMutation } from "../../redux/features/events/events";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Settings = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const [editButtonValue] = useEditButtonValuesMutation();
   const stakes = JSON.parse(localStorage.getItem("buttonValue"));
@@ -46,7 +49,9 @@ const Settings = () => {
                   src="/assets/setting_icon-DkwhIRGw.svg"
                   alt=""
                 />
-                <span className="setting-txt-con">Setting</span>
+                <span className="setting-txt-con">
+                  {getLanguage(LanguageKey.SETTINGS)}
+                </span>
               </h3>
             </div>
             {/* <div className="card-header theme-color-option">
@@ -98,7 +103,7 @@ const Settings = () => {
           </div>
           <div className="card-header theme-color-option">
             <h3 className="mb-0 bold">
-              <span>Stake</span>
+              <span>{getLanguage(LanguageKey.STAKE)}</span>
             </h3>
           </div>
           <form
@@ -109,7 +114,9 @@ const Settings = () => {
               <div className="col">
                 <div className="button-title">
                   <span>
-                    <b className="stake-amount">Quick Stakes</b>
+                    <b className="stake-amount">
+                      {getLanguage(LanguageKey.STAKE_VALUE)}
+                    </b>
                   </span>
                 </div>
               </div>
@@ -136,7 +143,7 @@ const Settings = () => {
             <div className="update-btn-con">
               <div className="update-btn-container">
                 <button type="submit" className="updatebtn ">
-                  Save
+                  {getLanguage(LanguageKey.SAVE)}
                 </button>
               </div>
             </div>

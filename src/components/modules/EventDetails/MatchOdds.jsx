@@ -11,8 +11,11 @@ import { Settings } from "../../../api";
 import BetSLip from "./BetSLip";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const MatchOdds = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
@@ -289,7 +292,7 @@ const MatchOdds = ({ data }) => {
                                 <span className="cashout-icon">
                                   <i className="fa fa-circle" />
                                 </span>{" "}
-                                Cashout{" "}
+                                {getLanguage(LanguageKey.CASHOUT)}{" "}
                                 {teamProfitForGame?.profit &&
                                   `(${teamProfitForGame.profit.toFixed(0)})`}
                               </button>
@@ -307,7 +310,7 @@ const MatchOdds = ({ data }) => {
                                 <span className="cashout-icon">
                                   <i className="fa fa-circle" />
                                 </span>{" "}
-                                Cashout
+                                {getLanguage(LanguageKey.SPEED_CASHOUT)}
                               </button>
                             </span>
                           </div>
@@ -321,7 +324,10 @@ const MatchOdds = ({ data }) => {
                   <div className="col-md-5 col-7">
                     <div className="minmax mm-fi p-1">
                       <dl className="fancy-info m-0">
-                        <dt>Min/Max</dt>
+                        <dt>
+                          {getLanguage(LanguageKey.MIN)}/
+                          {getLanguage(LanguageKey.MAX)}
+                        </dt>
                         <dd>
                           {" "}
                           {game?.minLiabilityPerBet}-{game?.maxLiabilityPerBet}

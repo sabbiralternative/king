@@ -11,8 +11,11 @@ import toast from "react-hot-toast";
 import BetSLip from "./BetSLip";
 import Ladder from "../../modals/Ladder/Ladder";
 import images from "../../../assets/images";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Fancy = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const fancyData = data?.filter(
     (fancy) =>
       fancy.btype === "FANCY" &&
@@ -183,7 +186,8 @@ const Fancy = ({ data }) => {
                               </div>
                               <div className="col-4">
                                 <button className="back back-img min_max_heading">
-                                  Min/Max
+                                  {getLanguage(LanguageKey.MIN)}/
+                                  {getLanguage(LanguageKey.MAX)}
                                 </button>
                               </div>
                             </div>

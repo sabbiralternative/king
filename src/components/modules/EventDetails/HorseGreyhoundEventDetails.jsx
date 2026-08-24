@@ -8,8 +8,11 @@ import {
 } from "../../../redux/features/events/eventSlice";
 import toast from "react-hot-toast";
 import BetSLip from "./BetSLip";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const HorseGreyhoundEventDetails = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const { runnerId } = useSelector((state) => state.event);
   const { eventId } = useParams();
   const { data: exposure } = useExposure(eventId);
@@ -146,7 +149,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
           className="img-fluid"
         />
         <div className="horse-banner-detail">
-          <div className="text-success">OPEN</div>
+          <div className="text-success">{getLanguage(LanguageKey.OPEN)}</div>
           {timeDiff?.day ||
           timeDiff?.hour ||
           timeDiff?.minute ||
@@ -155,26 +158,30 @@ const HorseGreyhoundEventDetails = ({ data }) => {
               <span style={{ display: "flex", gap: "5px" }}>
                 {timeDiff?.day > 0 && (
                   <span>
-                    {timeDiff?.day} <small>Day</small>
+                    {timeDiff?.day}{" "}
+                    <small>{getLanguage(LanguageKey.DAY)}</small>
                   </span>
                 )}
                 {timeDiff?.hour > 0 && (
                   <span>
-                    {timeDiff?.hour} <small>Hour</small>
+                    {timeDiff?.hour}{" "}
+                    <small>{getLanguage(LanguageKey.HOUR)}</small>
                   </span>
                 )}
                 {timeDiff?.minute > 0 && (
                   <span>
-                    {timeDiff?.minute} <small>Minutes</small>
+                    {timeDiff?.minute}{" "}
+                    <small>{getLanguage(LanguageKey.MINUTE)}</small>
                   </span>
                 )}
                 {timeDiff?.hour === 0 && timeDiff?.minute < 60 && (
                   <span>
-                    {timeDiff?.second} <small>Seconds</small>
+                    {timeDiff?.second}{" "}
+                    <small>{getLanguage(LanguageKey.SECOND)}</small>
                   </span>
                 )}
               </span>
-              <span>Remaining</span>
+              <span>{getLanguage(LanguageKey.REMAINING)}</span>
             </div>
           ) : null}
 
@@ -220,7 +227,10 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                   <div className="col-md-5 col-7">
                     <div className="minmax mm-fi p-1">
                       <dl className="fancy-info m-0">
-                        <dt>Min/Max</dt>
+                        <dt>
+                          {getLanguage(LanguageKey.MIN)}/
+                          {getLanguage(LanguageKey.MAX)}
+                        </dt>
                         <dd>
                           {" "}
                           {game?.minLiabilityPerBet}-{game?.maxLiabilityPerBet}

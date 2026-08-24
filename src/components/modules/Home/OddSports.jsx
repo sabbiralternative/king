@@ -4,8 +4,11 @@ import HorseGreyhound from "./HorseGreyhound";
 import { useState } from "react";
 import { FilterLiveVirtual } from "../../../utils/filter-live-virtual";
 import LiveVirtual from "./LiveVirtual";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const OddSports = () => {
+  const { getLanguage } = useLanguage();
   const [liveVirtual, setLiveVirtual] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,7 +72,7 @@ const OddSports = () => {
                               data-v-c9d3df59
                               className="inplay-animation-text"
                             >
-                              In-Play
+                              {getLanguage(LanguageKey.IN_PLAY)}
                             </span>
                           ) : (
                             <span
@@ -146,7 +149,7 @@ const OddSports = () => {
                 textAlign: "center",
               }}
             >
-              <p>No Event available right now</p>
+              <p>{getLanguage(LanguageKey.NO_BET_AVAILABLE)}</p>
             </div>
           )}
 
@@ -162,7 +165,7 @@ const OddSports = () => {
                 textAlign: "center",
               }}
             >
-              <p>No Event available right now</p>
+              <p>{getLanguage(LanguageKey.NO_BET_AVAILABLE)}</p>
             </div>
           )}
       </div>
