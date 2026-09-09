@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLogo } from "../../context/ApiProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -13,8 +13,12 @@ import { setUser } from "../../redux/features/auth/authSlice";
 import { setShowBanner } from "../../redux/features/global/globalSlice";
 import { LanguageKey } from "../../const";
 import useLanguage from "../../hooks/use-language";
+import { FaMobileAlt, FaRegUser } from "react-icons/fa";
 
 const Register = () => {
+  const [tab, setTab] = useState(
+    Settings.registration_mobile ? "mobile" : "username",
+  );
   const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const referralCode = localStorage.getItem("referralCode");
@@ -49,7 +53,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     const registerData = {
-      username: "",
+      username: data?.username,
       password: data?.password,
       confirmPassword: data?.confirmPassword,
       mobile: mobile,
@@ -59,6 +63,8 @@ const Register = () => {
       orderId: order.orderId,
       otpMethod: order.otpMethod,
       affnook_token: affnook_token || null,
+      registration_mobile: Settings.registration_mobile,
+      registration_username: Settings.registration_username,
     };
 
     const result = await handleRegister(registerData).unwrap();
@@ -159,27 +165,84 @@ const Register = () => {
                   data-v-e4dc66ac
                   className="reg-form"
                 >
-                  <div data-v-e4dc66ac className="input-field">
-                    <div data-v-e4dc66ac className="country-mob">
-                      <div data-v-e4dc66ac className="form_list_select">
-                        <div data-v-e4dc66ac className="country-select-card">
-                          <div data-v-e4dc66ac className="country-select">
-                            <div data-v-e4dc66ac className="country-icon">
-                              <img
-                                data-v-e4dc66ac
-                                src="https://flagcdn.com/in.svg"
-                                alt="India"
-                                loading="lazy"
-                              />
-                            </div>
-                            <div data-v-e4dc66ac className="country-code">
-                              + 91
-                            </div>
-                            <span data-v-e4dc66ac className="arrowDown" />
+                  {Settings.registration_mobile &&
+                    Settings.registration_username && (
+                      <div
+                        style={{
+                          width: "100%",
+                          background:
+                            "color-mix(in srgb, var(--primary-gradient) 30%, transparent)",
+                          marginBottom: "12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                            position: "relative",
+                            width: "100%",
+                          }}
+                        >
+                          <div
+                            onClick={() => setTab("mobile")}
+                            style={{
+                              cursor: "pointer",
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              padding: "5px",
+                              width: "100%",
+                              gap: "6px",
+                              color: "white",
+                              background:
+                                tab === "mobile"
+                                  ? "var(--primary-gradient)"
+                                  : undefined,
+                            }}
+                          >
+                            <FaMobileAlt />
+
+                            <span>{getLanguage(LanguageKey.BY_PHONE)}</span>
                           </div>
-                          <div data-v-e4dc66ac className="country-dropdown">
-                            <div data-v-e4dc66ac className="country-list">
-                              <div data-v-e4dc66ac className="country-item">
+
+                          <div
+                            onClick={() => setTab("username")}
+                            style={{
+                              cursor: "pointer",
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              padding: "5px",
+                              width: "100%",
+                              gap: "6px",
+                              color: "white",
+                              background:
+                                tab === "username"
+                                  ? "var(--primary-gradient)"
+                                  : undefined,
+                            }}
+                          >
+                            <FaRegUser />
+
+                            <span>{getLanguage(LanguageKey.BY_USERNAME)}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  {tab === "mobile" && Settings.registration_mobile && (
+                    <Fragment>
+                      <div data-v-e4dc66ac className="input-field">
+                        <div data-v-e4dc66ac className="country-mob">
+                          <div data-v-e4dc66ac className="form_list_select">
+                            <div
+                              data-v-e4dc66ac
+                              className="country-select-card"
+                            >
+                              <div data-v-e4dc66ac className="country-select">
                                 <div data-v-e4dc66ac className="country-icon">
                                   <img
                                     data-v-e4dc66ac
@@ -188,63 +251,110 @@ const Register = () => {
                                     loading="lazy"
                                   />
                                 </div>
-                                <div data-v-e4dc66ac className="country-name">
-                                  91
-                                </div>
                                 <div data-v-e4dc66ac className="country-code">
-                                  +India
+                                  + 91
                                 </div>
+                                <span data-v-e4dc66ac className="arrowDown" />
+                              </div>
+                              <div data-v-e4dc66ac className="country-dropdown">
+                                <div data-v-e4dc66ac className="country-list">
+                                  <div data-v-e4dc66ac className="country-item">
+                                    <div
+                                      data-v-e4dc66ac
+                                      className="country-icon"
+                                    >
+                                      <img
+                                        data-v-e4dc66ac
+                                        src="https://flagcdn.com/in.svg"
+                                        alt="India"
+                                        loading="lazy"
+                                      />
+                                    </div>
+                                    <div
+                                      data-v-e4dc66ac
+                                      className="country-name"
+                                    >
+                                      91
+                                    </div>
+                                    <div
+                                      data-v-e4dc66ac
+                                      className="country-code"
+                                    >
+                                      +India
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              data-v-e4dc66ac
+                              className="form_list_select_div-r"
+                            >
+                              <input
+                                data-v-e4dc66ac
+                                type="tel"
+                                className="form-control pr-8"
+                                placeholder="Enter Phone Number*"
+                                onChange={(e) => handleMobileNo(e)}
+                                value={mobile}
+                              />
+                              <div data-v-e4dc66ac className="mo-number-right">
+                                {timer ? (
+                                  <div
+                                    data-v-e4dc66ac
+                                    id="otp-btn"
+                                    className="sendOtp-btn otp-btn"
+                                  >
+                                    {getLanguage(LanguageKey.RETRY_IN)} {timer}
+                                  </div>
+                                ) : (
+                                  <button
+                                    type="button"
+                                    disabled={
+                                      Settings.otp && mobile?.length < 10
+                                    }
+                                    onClick={handleOTP}
+                                    data-v-e4dc66ac
+                                    id="otp-btn"
+                                    className="sendOtp-btn otp-btn"
+                                  >
+                                    {getLanguage(LanguageKey.GET_OTP)}
+                                  </button>
+                                )}
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div data-v-e4dc66ac className="form_list_select_div-r">
+                      </div>
+
+                      <div data-v-e4dc66ac className="input-field">
+                        <div data-v-e4dc66ac className="input-field-group">
                           <input
                             data-v-e4dc66ac
-                            type="tel"
-                            className="form-control pr-8"
-                            placeholder="Enter Phone Number*"
-                            onChange={(e) => handleMobileNo(e)}
-                            value={mobile}
+                            type="text"
+                            {...register("otp", { required: true })}
+                            placeholder="Enter OTP*"
+                            className="form-control"
                           />
-                          <div data-v-e4dc66ac className="mo-number-right">
-                            {timer ? (
-                              <div
-                                data-v-e4dc66ac
-                                id="otp-btn"
-                                className="sendOtp-btn otp-btn"
-                              >
-                                {getLanguage(LanguageKey.RETRY_IN)} {timer}
-                              </div>
-                            ) : (
-                              <button
-                                type="button"
-                                disabled={Settings.otp && mobile?.length < 10}
-                                onClick={handleOTP}
-                                data-v-e4dc66ac
-                                id="otp-btn"
-                                className="sendOtp-btn otp-btn"
-                              >
-                                {getLanguage(LanguageKey.GET_OTP)}
-                              </button>
-                            )}
-                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    </Fragment>
+                  )}
 
-                  <div data-v-e4dc66ac className="input-field">
-                    <div data-v-e4dc66ac className="input-field-group">
-                      <input
-                        data-v-e4dc66ac
-                        type="text"
-                        {...register("otp", { required: true })}
-                        placeholder="Enter OTP*"
-                        className="form-control"
-                      />
+                  {tab === "username" && Settings.registration_username && (
+                    <div data-v-e4dc66ac className="input-field">
+                      <div data-v-e4dc66ac className="input-field-group">
+                        <input
+                          data-v-e4dc66ac
+                          type="text"
+                          {...register("username", { required: true })}
+                          placeholder="Enter Username*"
+                          className="form-control"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
+
                   <div data-v-e4dc66ac className="input-field">
                     <div data-v-e4dc66ac className="input-field-group">
                       <input

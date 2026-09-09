@@ -434,5 +434,7 @@ export const LanguageKey = {
   RUNNER_NAME: "RUNNER_NAME",
   MY_BETS: "MY_BETS",
   TEEN_PATTI: "TEEN_PATTI",
+  BY_USERNAME: "BY_USERNAME",
+  BY_PHONE: "BY_PHONE",
 };
 export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";
